@@ -1,0 +1,14 @@
+ /*主题色*/
+ .container,.theme { background:#3e3e3e;}
+ 
+ /*头部色*/
+ .header{ background:#000;}
+ 
+ /*列表色*/
+ .list{ background:#fff;}
+ 
+ /*方格色*/
+ .grid{background:#fff; }
+ 
+ /*详情色*/
+ .details{ background:#fff;}

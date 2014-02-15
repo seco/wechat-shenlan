@@ -1,0 +1,50 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$arrView[title]}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<form name="add_form" method="post" action="{$arrView[addUrl]}" enctype="multipart/form-data">
+		<div id="news" class="xml">
+			<dl><dt>菜单内容</dt><dd><textarea name="menu" cols="80" rows="8">
+{
+     "button":[
+     {  
+          "type":"click",
+          "name":"深蓝首页",
+          "key":"shenlan_home"
+      },
+      {
+           "type":"click",
+           "name":"深蓝服务",
+           "key":"shenlan_service"
+      },
+      {
+           "name":"发现更多",
+           "sub_button":[
+           {    
+               "type":"view",
+               "name":"深蓝简介",
+               "url":"http://www.shenlanvip.com/#about"
+            },
+            {
+               "type":"view",
+               "name":"微信开发",
+               "url":"http://www.shenlanvip.com/#wx"
+            },
+            {
+               "type":"click",
+               "name":"联系方式",
+               "key":"shenlan_contact"
+            }]
+       }]
+ }
+			</textarea></dd></dl>
+			<dl><dt>&nbsp;</dt><dd><input type="submit" value="提交"/></dd></dl>
+		</div>
+		</form>
+</div>
+<include file="Public:footer" />

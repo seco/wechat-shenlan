@@ -1,0 +1,34 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2 class="head-01">主题列表</h2>
+  <div class="add-menu">
+    <div class="cb">
+      <table width="100%">
+        <tr>
+          <th>主题名称</th>
+          <th>主题效果图</th>
+          <th>作者</th>
+          <th>更新时间</th>
+          <th>操作</th>
+        </tr>
+	<empty name="itemList" id="vo">
+	  <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+        </empty>
+	<volist name="itemList" id="vo">
+	  <tr>
+            <td>{$vo[theme_name]}</td>
+	    <td><img src="{$vo[rendering_name]}" height="50" /></td>
+	    <td>{$vo[author]}</td>
+	    <td>{$vo[mtime_text]}</td>
+            <td>
+	      <a href="{$useUrl}&id={$vo[id]}">使用此主题</a>
+	    </td>
+	  </tr>
+	</volist>
+      </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

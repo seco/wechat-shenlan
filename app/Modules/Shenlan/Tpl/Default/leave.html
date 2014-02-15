@@ -1,0 +1,49 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<!-- 内容 BEGIN -->
+<div class="container">
+ 
+  <div class="form pb100 pt30 pb50 mb50 pr">
+    <div id="message" class="alert alert-info w tc none pa" style=" bottom:200px; z-index:999; width:100%; background:#4EAFE9; color:#fff;">提交成功</div>
+    <div class="col-xs-12">
+    <h4>我要留言</h4>
+    <form id="leave" onsubmit="return show()" >
+        <input type="hidden" name="cat_id" value="{$itemInfo.catInfo.id}" />
+      <p>姓　　名<span style="color:red;">*</span><input type="text" class="form-control require_name" name="guest_name" ></p>
+      <p>手机号码<span style="color:red;">*</span><input type="tel" class="form-control require_phone" name="phone"></p>
+      <p>Q  Q号码<input type="number" class="form-control" name="qq"></p>
+      <p>微信号码<input type="number" class="form-control" name="wechat"></p>
+      <p>留言内容<span style="color:red;">*</span><textarea  class="form-control require_content" name="content" rows="3"></textarea></p>
+      <input type="submit" class="btn btn-warning btn-block mt10 f16" value="提  交" />
+    </form>
+  </div>
+</div>
+<!-- END 内容 -->
+<script type="text/javascript" >
+$(function(){
+    $("input").focus(function(){
+    $("input").css("border-color","#CCCCCC");
+    $("textarea").css("border-color","#CCCCCC");
+    });
+})
+function show(){ 
+    if($(".require_name").val() == ''){
+        $(".require_name").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_phone").val() == ''){
+        $(".require_phone").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_content").val() == ''){
+        $(".require_content").css("border-color", '#A94442');
+        return false;
+    }else{
+    $.post("{:U('Shenlan/Leave/doAddLeave', array('blue_key'=>$_SESSION['blue_key']))}", $("#leave").serialize(), function(result){
+        $("#message").fadeIn("slow");
+        setTimeout("$('#message').fadeOut('slow')", 1500);
+        setTimeout("window.history.back()", 2000);
+    })
+	return false;
+}
+}
+</script>
+<include file="Public:footer" />

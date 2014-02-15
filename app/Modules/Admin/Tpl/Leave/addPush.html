@@ -1,0 +1,21 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$arrView[title]}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<form name="add_form" method="post" action="{$arrView[addUrl]}" enctype="multipart/form-data">
+		<div id="news" class="xml">
+			<dl><dt>图文标题</dt><dd><input type="text" name="arr[title]"></dd></dl>
+			<dl><dt>描述</dt></dd><textarea name="arr[description]" cols="70" rows="5"></textarea></dd></dl>
+			<dl><dt>图片</dt><dd><input type="file" name="pic"></dd></dl>
+			<notempty name="arrView[pic]"><dd><img src="{$arrView[pic]}" height="50" /></dd></notempty>
+			<dl><dt>网址</dt><dd><input type="text" name="arr[url]"></dd></dl>
+			<dl><dt>&nbsp;</dt><dd><input type="submit" value="提交"/></dd></dl>
+		</div>
+		</form>
+</div>
+<include file="Public:footer" />

@@ -1,0 +1,38 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+    <h2>{$title}</h2>
+    <form method="post" action="{$editUrl}" enctype="multipart/form-data" role="form">
+      <input type="hidden" name="id" value="{$itemInfo[id]}" />
+      <div class="form-group">
+          <label for="title">标题：</label>
+          <input type="text" id="title" value="{$itemInfo[title]}" class="form-control" placeholder="请输入图文标题" />
+      </div>
+      <div class="form-group">
+          <label for="pic">封面：</label>
+          <input type="file" id="pic" class="form-control" />
+          <notempty name="itemInfo[cover_name]"><img src="{$itemInfo[cover_name]}" height="50" /></notempty>
+      </div>
+      <div class="form-group">
+          <label for="description">描述：</label>
+          <textarea id="description" rows="4" class="form-control" placeholder="图文描述" />{$itemInfo[description]}</textarea>
+      </div>
+      <div class="form-group">
+          <label for="url">链接地址：</label>
+          <input type="url" id="url" value="{$itemInfo[url]}" class="form-control" placeholder="请输入链接地址" />
+      </div>
+      <div class="from-group">
+          <label class="radio-inline">
+              <input type="radio" name="status" id="status1" value="1" <eq name="itemInfo[status]" value="1"> checked="checked"</eq> />
+              启用
+          </label>
+          <label class="radio-inline">
+              <input type="radio" name="status" id="status2" value="0" <eq name="itemInfo[status]" value="0"> checked="checked"</eq>/>
+              禁用
+          </label>
+      </div>
+          <button type="submit" class="btn btn-primary">更新</button>
+  </form>
+</div>
+<include file="Public:footer" />

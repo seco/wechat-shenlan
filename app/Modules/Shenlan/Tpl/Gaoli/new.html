@@ -1,0 +1,19 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<div class="container list pb50">
+  <div class="pb100">
+    <div class="tc">
+      <img class="img-responsive" src="{$itemInfo[catInfo][cover_name]}">
+    </div>
+    <div class="col-xs-12 mt20 mb30">
+        {$itemInfo[catInfo][content]}
+    </div>
+    <volist name="itemInfo[catList]" id="vo">
+    <div class="col-xs-12 toupiao-list">
+        <a href="{$vo[url]}" class="thumbnail"><img class="img-responsive" src="{$vo[cover_name]}" class="img-responsive "></a>
+        <p>{$vo[title]}<img class="tr" src="../Public/images/nav04.jpg">{$vo[ups]}</p>
+    </div>
+    </volist>
+  </div>
+</div>
+<include file="Public:footer" />

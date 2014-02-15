@@ -1,0 +1,66 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$title}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+  <!--搜索 BEGIN-->
+  <div class="search">
+    <form action="{:U('###')}" method="post">
+      <table width="100%">
+		  <th width="80">{$search}：</th>
+        <td>
+          <input type="text" name="keyword" />
+          <input type="submit" value="搜 索" class="btn search-btn" />
+        </td>
+      </table>
+    </form>
+  </div>
+  <!--END 搜索--> 
+<div class="toolbar">
+		<a href="javascript:void(0);" class="btn del-btn"><span>删除</span></a>
+</div>
+<div class="list">
+	<form class="del-form" action="{$delUrl}" method="post" class="del-form">
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<thead>
+				<tr>
+						<th width="5%"><input type="checkbox" class="check-all"/></th>
+						<th width="5%"></th>
+						<th width="15%">关注者ID</th>
+						<th width="15%">微信号</th>
+						<th width="15%">预约对象</th>
+						<th width="15%">时间</th>
+						<th width="15%">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+				<empty name="arrList" id="vo">
+				<tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+				<else />
+				<volist name="arrList" id="vo">
+				<tr>
+					<td><input type="checkbox" name="id[]" value="{$vo[id]}"></td>
+					<td>{$vo[id]}</td>
+					<td><a href="{$editUrl}&openid={$vo}">{$vo}</a></td>
+					<td>{$vo[open_id]}</td>
+					<td>{$vo[item_name]}</td>
+					<td>{$vo[reserve_time_text]}</td>
+					<td>
+						<a href="{$delUrl}&id={$vo[id]}">删除</a>
+					</td>
+				</tr>
+				</volist>
+				</empty>
+			</tbody>
+		</table>
+	</form>
+</div>
+<div class="toolbar">
+	<div class="page right">{$pageHtml}</div>
+		<a href="javascript:void(0);" class="btn del-btn"><span>删除</span></a>
+	</div>
+</div>
+<include file="Public:footer"/>

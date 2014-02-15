@@ -1,0 +1,60 @@
+<include file="Public:title" />
+<include file="Public:topMenu" />
+<include file="Public:userMenu" />
+<div class="main">
+  <h2 class="head-01">公众账号信息</h2>
+  <ul class="set-main">
+    <form method="post" action="{$addUrl}" enctype="multipart/form-data">
+      <li>
+        <div class="lab-name">LOGO：</div>
+        <div class="lab-con">
+          <p><input type="file" name="logo" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">账号名称：</div>
+        <div class="lab-con">
+          <p><input type="text" class="long" name="wechat_name" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">公众号原始ID：</div>
+        <div class="lab-con">
+          <p><input type="text" class="long" name="open_id" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">接口配置TOKEN：</div>
+        <div class="lab-con">
+          <p><input type="text" class="long" name="token" />
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">开发者唯一凭据：</div>
+        <div class="lab-con">
+          <p><input type="text" class="long" name="appid" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">开发者唯一凭据密钥：</div>
+        <div class="lab-con">
+          <p><input type="text" class="long" name="appsecrect" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">启用状态：</div>
+        <div class="lab-con">
+          <p><input type="radio" name="status" value="1" />启用
+          <input type="radio" name="status" value="0" />禁用</p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">&nbsp;</div>
+        <div class="lab-con">
+          <p><input type="submit" class="submit" value="添加"/></p>
+        </div>
+      </li>
+    </form>
+  </ul>
+</div>
+<include file="Public:footer" />

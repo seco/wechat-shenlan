@@ -1,0 +1,49 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<div class="container pb50">
+  <div class="details pb100">
+      </br>
+    <div class="mt20 tc col-xs-12">
+        <img class="img-responsive" src="<empty name='vo[cover_name]'>../Public/images/none.jpg<else />{$itemInfo[catInfo][cover_name]}</empty>">
+    </div>
+    <div class="col-xs-12 mt20">
+        <p><span style="font:18px; color:#563D7C">性别：</span>{$itemInfo.catInfo.sex}</p>
+        <p><span style="color:#563D7C">年龄：</span>
+            <?php
+            $age = date(Y) - substr($itemInfo[catInfo][age], 0, 4);
+            if(date(m) < substr($itemInfo[catInfo][age], 4, 2)){
+                $age--;
+            }elseif(date(m) == substr($itemInfo[catInfo][age], 4, 2)){
+            if(date(d) <= substr($itemInfo[catInfo][age], 6, 2)){
+                $age--;
+                }
+            }
+            echo $age;
+            ?>
+        </p>
+        <p><span style="color:#563D7C">婚姻状况：</span>{$itemInfo.catInfo.marry}</p>
+        <p><span style="color:#563D7C">身高：</span>{$itemInfo.catInfo.height}</p>
+        <p><span style="color:#563D7C">学历：</span>{$itemInfo.catInfo.grade}</p>
+        <p><span style="color:#563D7C">自我介绍：</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;{$itemInfo.catInfo.me}</p>
+        <p><span style="color:#563D7C">择偶要求：</span></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;{$itemInfo.catInfo.require}</p>
+        </br>
+        </br>
+<a href="{:U('Shenlan/Shiji/leave', array('blue_key'=>$_SESSION[blue_key], 'id'=>$itemInfo[catInfo][id]))}" class="btn btn-warning btn-block mt10 f16">联系TA吧</a>
+    </div>
+    <div class="col-xs-12 mt20" id="plugin">
+</div>
+  </div>
+</div>
+<script>
+$(function(){
+        var haha="{$itemInfo[catInfo][plugin]}";
+        if(haha == "comment"){
+var id={$itemInfo.catInfo.id};
+var length=4;
+$("#plugin").load("{:U('Shenlan/Leave/getLeaveList', array('blue_key'=>$_SESSION['blue_key']))}", {id: id, length: length});
+}
+})
+</script>
+<include file="Public:footer" />

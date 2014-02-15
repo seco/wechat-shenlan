@@ -1,0 +1,54 @@
+<include file="Default:Public:header" />
+  <body>
+    <!-- 头部 BEGIN -->
+    <div class="header">
+		<volist name="bannerList" id="vo">
+      <div class="container">
+		  <img src="{$vo[cover_name]}" class="img-responsive">
+      </div>
+	  </volist>
+    </div>
+      <div class="container index">
+      	<div class="row">
+        	<div class="col-md-12">
+				<a href="{$arrView[aboutUrl]}">
+            	<img src="../Public/img/index_1.jpg" class="fl img-responsive">
+                <dl>
+					<dt>公司简介</dt></a>
+                    <dd>成立于2009年的济南深蓝解码公司，专注互联网开发技术、用户体验设计、交互设计。精于核心技术的钻研与提升...</dd>
+                </dl>
+            </div>
+          </div>
+          <div class="row">  
+            <div class="col-md-12 index">
+				<a href="{$arrView[solutionUrl]}">
+            	<img src="../Public/img/index_2.jpg" class="fl img-responsive">
+                <dl>
+					<dt>解决方案</dt></a>
+                    <dd>深蓝形成完整的解决方案组，以满足不同行业的需求。拥有专业的自主研发团队，帮你打造稳定、快速、全方位的解决方案。</dd>
+                </dl>
+            </div>
+           </div> 
+            <div class="row">  
+              <div class="col-md-12 index">
+				  <a href="{$arrView[caseUrl]}">
+            	<img src="../Public/img/index_3.jpg" class="fl img-responsive">
+                <dl>
+					<dt>成功案例</dt></a>
+                    <dd>艺工厂、飞狗旅行、探宝之旅、学中文网、家校易联、法珀赛尔、爱婚礼以及微信网站、手机APP终端项目等众多成功案例...</dd>
+                </dl>
+              </div>
+            </div>
+            <div class="row">  
+              <div class="col-md-12 index">
+				  <a href="{$arrView[contactUrl]}">
+            	<img src="../Public/img/index_4.jpg" class="fl img-responsive">
+                <dl>
+					<dt>联系我们</dt></a>
+                    <dd>艺深蓝逐渐成为网络建设行业的引领者，作为网站建设行业一流的品牌综合服务提供者，深蓝为客户提供的绝不仅仅是简单的网站！</dd>
+                </dl>
+            </div>
+          </div> 
+        </div>
+      </div>
+<include file="Default:Public:footer" /> 

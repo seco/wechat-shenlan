@@ -1,0 +1,148 @@
+<include file="../Public/_header" />
+<div class="so_main">
+  <div class="page_tit">文章编辑</div>
+  
+  <div class="form2">
+    <form method="post" action="{:U('Admin/About/update')}" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{$list['id']}"/>
+    <dl class="lineD">
+      <dt>文章标题：</dt>
+      <dd>
+        <input name="title" type="text" value="{$list['title']}" size="60" />
+      </dd>  
+    </dl>
+    <dl class="lineD">
+      <dt>简介：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="instro">{$list['instro']}</textarea>
+        <p>简介内容要控制在100字以内</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>文章内容：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="content" id="myEditor">{$list['content']}</textarea>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>SEO标题：</dt>
+      <dd>
+        <input name="data[meta][title]" type="text" value="{$meta.seo_title}" size="60" />
+      </dd>  
+    </dl>
+    <dl class="lineD">
+      <dt>SEO关键字：</dt>
+      <dd>
+        <input name="data[meta][keyword]" type="text" value="{$meta.seo_keyword}" size="60" />
+        <p>多个关键字用空格分隔</p>
+      </dd>
+    </dl>
+    
+    <dl class="lineD">
+      <dt>SEO内容：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="data[meta][description]">{$meta.seo_description}</textarea>
+        <p>字数控制住100以内</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>开始时间:</dt>
+      <dd>
+        <input type="text" name="ptime" value="{$list.ptime|date='Y-m-d',###}" onFocus="WdatePicker({minDate:'$time', lang:'zh-cn',dchanged:cDayFunc1})" id="intime"/>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>结束时间:</dt>
+      <dd>
+        <input type="text" name="otime" <if condition="$list.otime neq 0">value="{$list.otime|date='Y-m-d',###}"</if> onFocus="WdatePicker({minDate:setDate($('#intime').val()), lang:'zh-cn',dchanged:cDayFunc2})" id="outtime">
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>顺序:</dt>
+      <dd>
+        <input type="text" name="a_order" value="{$list.a_order}"/>
+        <p>数字越大，越靠前，最大999</p>
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit"  value="确定" class="btn_b"/>
+    </div>
+    </form>
+  </div>
+</div>
+<include file="../Public/_footer" />
+
+<script type="text/javascript">
+//编辑器
+
+  UE.getEditor('myEditor',{
+        initialFrameWidth : 700,
+        initialFrameHeight: 200
+    });
+</script>
+<script>
+
+function setDate(time){
+   
+   var Arr = time.split('-');
+   var now = new Date(Arr[0],Arr[1]-1,Arr[2]);   
+    // + 1 代表日期加，- 1代表日期减   
+   now.setDate((now.getDate() + 1));   
+   var year = now.getFullYear();   
+   var month = now.getMonth() + 1;   
+   var day = now.getDate();   
+   if (month < 10) {   
+           month = '0' + month;   
+             }   
+    if (day < 10) {   
+           day = '0' + day;   
+               }   
+  
+     return year + '-' + month + '-' + day;   
+   };   
+function cDayFunc1(){ 
+  var intime = $dp.cal.getNewDateStr();
+  var outtime = $('#outtime').val();
+  var inArr = intime.split('-');
+  var outArr = outtime.split('-');
+  var startDate = new Date(inArr[0],inArr[1]-1,inArr[2]);
+  var endDate = new Date(outArr[0],outArr[1]-1,outArr[2]);
+  var diffDay = dateDiff('d',startDate,endDate);
+  $('.days').val(diffDay);
+  
+}
+function cDayFunc2(){
+     var outtime = $dp.cal.getNewDateStr();
+  var intime = $('#intime').val();
+  var inArr = intime.split('-');
+  var outArr = outtime.split('-');
+  var startDate = new Date(inArr[0],inArr[1]-1,inArr[2]);
+  var endDate = new Date(outArr[0],outArr[1]-1,outArr[2]);
+  var diffDay = dateDiff('d',startDate,endDate);
+  $('.days').val(diffDay);
+
+}
+function dateDiff(interval,date1,date2){ 
+  var long = date2.getTime() - date1.getTime();//相差毫秒
+  if(long <= 0){
+     date1= date1.getTime()+ 24*3600*1000;
+     date1 = new Date(date1);
+     var  month = date1.getMonth()+1;
+     var  day = date1.getDate();
+     var outtime = date1.getFullYear()+'-'+(month<10? '0'+month:month)+'-'+(day<10 ? "0"+ day : day);
+       $("#outtime").val(outtime);
+    return 1;
+    }
+  switch(interval.toLowerCase()){ 
+    case "y": return parseInt(date2.getFullYear() - date1.getFullYear()); 
+    case "m": return parseInt((date2.getFullYear() - date1.getFullYear())*12 + (date2.getMonth()-date1.getMonth())); 
+    case "d": return parseInt(long/1000/60/60/24); 
+    case "w": return parseInt(long/1000/60/60/24/7); 
+    case "h": return parseInt(long/1000/60/60); 
+    case "n": return parseInt(long/1000/60); 
+    case "s": return parseInt(long/1000); 
+    case "l": return parseInt(long); 
+  } 
+} 
+
+</script>

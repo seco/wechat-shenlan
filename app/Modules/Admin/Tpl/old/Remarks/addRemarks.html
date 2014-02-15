@@ -1,0 +1,18 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$title}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<form name="add_form" method="post" action="{$addUrl}" enctype="multipart/form-data">
+		<div id="news" class="xml">
+		  <dl><dt>微信原始ID</dt><dd><input type="text" name="open_id" value="{$arrInfo[open_id]}" /></dd></dl>
+		  <dl><dt>用户名</dt><dd><input type="text" name="name" value="{$arrInfo[name]}" /></dd></dl>
+		  <dl><dt>&nbsp;</dt><dd><input type="submit" value="添加"/></dd></dl>
+		</div>
+		</form>
+</div>
+<include file="Public:footer" />

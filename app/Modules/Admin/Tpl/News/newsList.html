@@ -1,0 +1,36 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+    <h2>图文回复列表</h2>
+    <a href="{$addUrl}" class="btn btn-primary" role="button">添加图文回复</a>
+    <div class="cb">
+      <table width="100%">
+        <tr>
+          <th>图文封面</th>
+          <th>图文标题</th>
+          <th>关键字</th>
+          <th>更新时间</th>
+          <th>操作</th>
+        </tr>
+	<empty name="itemList" id="vo">
+	  <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+        </empty>
+	<volist name="itemList" id="vo">
+	  <tr>
+	    <td><img src="{$vo[cover_name]}" height="50" /></td>
+	    <td>{$vo[title]}</td>
+            <td>{$vo[keyword]}</td>
+	    <td>{$vo[mtime_text]}</td>
+	    <td>
+	      <a href="{$editUrl}&id={$vo[id]}">编辑</a>
+	      <a href="{$delUrl}&id={$vo[id]}">删除</a>
+	    </td>
+	  </tr>
+	</volist>
+      </table>
+      {$pageHtml}
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

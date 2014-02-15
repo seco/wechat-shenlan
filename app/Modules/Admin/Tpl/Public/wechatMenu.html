@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="list-group">
+  <div class="sidebar">
+    <volist name="tabList" id="vo">
+    <dl class="left_menu">
+        <dt><a href="###">{$vo.name}</a></dt>
+        <volist name="vo[children]" id="voo">
+        <dd class="children none <eq name='left_current' value='$voo.spell'>left_children_select</eq>"><a href="{$voo.url}">{$voo.name}</a></dd>
+        </volist>
+    </dl>
+    </volist>
+</div>
+ 
+  
+ 

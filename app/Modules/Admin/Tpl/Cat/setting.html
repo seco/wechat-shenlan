@@ -1,0 +1,92 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2 class="head-01">微网设置选项</h2>
+  <ul class="set-main">
+    <form method="post" action="{$editUrl}" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="{$itemInfo[id]}" />
+      <li>
+        <div class="lab-name">LOGO：</div>
+        <div class="lab-con">
+          <notempty name="itemInfo[logo_name]"><p><img src="{$itemInfo[logo_name]}" height="50" /></p></notempty>
+          <p><input type="file" name="pic" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">站点名称：</div>
+        <div class="lab-con">
+          <p><input type="text" name="site_name" value="{$itemInfo[site_name]}" /></p>
+        </div>
+      </li>
+      <li>
+      <div class="lab-name">微网链接：</div>
+      <div class="lab-con">
+          <p><a href="{$itemInfo[url]}" target="_blank">{$itemInfo[url]}</a></p>
+      </div>
+      </li>
+      <li>
+        <div class="lab-name">固话：</div>
+        <div class="lab-con">
+          <p><input type="text" name="tel" value="{$itemInfo[tel]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">手机号码：</div>
+        <div class="lab-con">
+          <p><input type="text" name="mobile" value="{$itemInfo[mobile]}" />
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">QQ号码：</div>
+        <div class="lab-con">
+          <p><input type="text" name="qq" value="{$itemInfo[qq]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">邮箱：</div>
+        <div class="lab-con">
+          <p><input type="text" name="email" value="{$itemInfo[email]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">经度：</div>
+        <div class="lab-con">
+          <p><input type="text" name="longitude" value="{$itemInfo[longitude]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">维度：</div>
+        <div class="lab-con">
+          <p><input type="text" name="latitude" value="{$itemInfo[latitude]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">当前主题：</div>
+        <div class="lab-con">
+          <p>{$itemInfo[theme_name]}</p>
+        </div>
+      </li>
+      <li>
+      <div class="lab-name">配色方案：</div>
+      <div class="lab-con">
+          <p><select name="color_id">
+              <notempty name="itemInfo[color_name]">
+              <option value="{$itemInfo[color_id]}">{$itemInfo[color_name]}</option>
+              </notempty>
+              <volist name="colorList" id="vo">
+              <option value="{$vo[id]}">{$vo[color_name]}</option>
+              </volist>
+          </select></p>
+      </div>
+      </li>
+      <li>
+        <div class="lab-name">&nbsp;</div>
+        <div class="lab-con">
+          <p><input type="submit" class="submit" value="更新"/></p>
+        </div>
+      </li>
+    </form>
+  </ul>
+</div>
+<include file="Public:footer" />

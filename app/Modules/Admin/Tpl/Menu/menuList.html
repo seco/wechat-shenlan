@@ -1,0 +1,163 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+    <h2 class="head-01">菜单列表</h2>
+    <div class="add-menu">
+        <button id="addMenu">添加菜单</button>
+        <button onclick="location.href='{$updateMenu}'">更新菜单</button>
+        <div class="cb mt20">
+            <table id="menu_table" width="100%">
+                <tr>
+                    <th>菜单名称</th>
+                    <th>类型</th>
+                    <th>菜单值</th>
+                    <th>排序</th>
+                    <th>编辑</th>
+                </tr>
+                <volist name="itemList" id="vo">
+                <tr trid="{$vo.id}" trfid="0">
+                    <td><input class="tdname" type="text" name="name" value="{$vo.name}" />
+                        <a href="###" class="showChildren">+</a></td>
+                    <td><select class="tdtype" name="type">
+                            <if condition="$vo[type] eq 'view'">
+                            <option value="view">链接</option>
+                            <option value="click">关键字</option>
+                            <option value="0">--</option>
+                            <elseif condition="$vo[type] eq 'click'"/>
+                            <option value="click">关键字</option>
+                            <option value="view">链接</option>
+                            <option value="0">--</option>
+                            <else />
+                            <option value="0">--</option>
+                            <option value="view">链接</option>
+                            <option value="click">关键字</option>
+                            </if>
+                    </select></td>
+                    <td><input class="tdvalue" type="text" name="value" value="{$vo.value}" /></td>
+                    <td><input class="tdorder" type="text" name="display_order" value="{$vo.display_order}" /></td>
+                    <td><button class="editMenu">更新</button><button onclick="del({$vo.id})" class="delete-btn">删除</button></td>
+                </tr>
+                <notempty name="vo[sub_button]">
+                <volist name="vo[sub_button]" id="voo">
+                <tr trid="{$voo.id}" trfid="{$voo.fid}" class="children_tr">
+                    <td>-<input class="tdname" type="text" name="name" value="{$voo.name}" /></td>
+                    <td><select class="tdtype" name="type">
+                            <eq name="voo[type]" value="view">
+                            <option value="view">链接</option>
+                            <option value="click">关键字</option>
+                            <else />
+                            <option value="click">关键字</option>
+                            <option value="view">链接</option>
+                    </eq></select></td>
+                    <td><input class="tdvalue" type="text" name="value" value="{$voo.value}" /></td>
+                    <td><input class="tdorder" type="text" name="display_order" value="{$voo.display_order}" /></td>
+                    <td><button class="editMenu">更新</button><button  onclick="del({$voo.id})" class="delete-btn">删除</button></td>
+                </tr>
+                </volist>
+                </notempty>
+                </volist>
+            </table>
+            <div id="menuForm">
+              <ul>  
+				<form id="myForm" method="post">
+                    <li>
+					  <div class="fid-q">上级菜单：</div>
+					  <select class="fid-input" name="fid">
+					    <option value="0">--</option>
+						<volist name="itemList" id="vo">
+					      <option value="{$vo.id}">{$vo.name}</option>
+						</volist>
+				      </select>
+                    </li>					
+                    <li> 
+					  <div class="fid-q">菜单名称：</div>
+					  <input class="fid-input" type="text" name="name"> 
+                    </li>
+					<li>
+					  <div class="fid-q">类型：</div>
+					  <select class="fid-input" name="type">
+                        <option value="0">--</option>
+                        <option value="view">链接</option>
+                        <option value="click">关键字</option></select>
+				    </li>
+					<li><div class="fid-q">菜单值：</div><input class="fid-input" type="text" name="value"></li>
+                    <li><div class="fid-q">排序：</div><input class="fid-input" type="text" name="display_order"></li>
+                </form>
+              </ul>
+			</div>
+        </div>
+    </div>
+</div>
+<script>
+//删除
+function del(id){
+	$url = '{$delMenu}';
+	$.get($url, {"id":id});
+}
+
+$(function(){
+    //添加主菜单
+    $("#addMenu").click(function(){
+		$("#menuForm").dialog("open");
+    });
+
+    //样式
+    $( "input[type=submit], button" )
+    .button()
+    .click(function( event ) {
+        event.preventDefault();
+    });
+
+    //删除效果
+	$('.delete-btn').click(function(){
+	    $(this).parents('tr').remove();
+	});
+
+    //编辑菜单
+    $(".editMenu").click(function(){
+        var id=$(this).parents('tr').attr('trid');
+        var fid=$(this).parents('tr').attr('trfid');
+        var name=$(this).parents('tr').find('.tdname').val();
+		var type=$(this).parents('tr').find('.tdtype').val();
+        var value=$(this).parents('tr').find('.tdvalue').val();
+        var display_order=$(this).parents('tr').find('.tdorder').val();
+        var data={'id':id, 'fid':fid, 'name':name, 'type':type, 'value':value, 'display_order':display_order};
+        var url="{:U('Admin/Menu/editMenu')}";
+        $.post(url, data, function(data){
+            alert('更新成功');
+            });
+    });
+
+    //对话框
+    $("#menuForm").dialog({
+		autoOpen: false,
+		height: 300,
+		width: 350,
+		modal: true,
+		title: '添加菜单',
+		buttons: {
+			"确认添加": function(){
+				$.post("{$addMenu}", $("#myForm").serialize(), function(data){
+                    window.location.reload();
+					//var result = JSON.parse(data);
+					//var content="<tr><td><input type='text' name='name' value=" + result.name + " /></td><td><input type='text' value="+result.type+"></td><td><input type='text' name='value' value=" + result.value + " ></td><td><button>更新</button><button>删除</button></td></tr>";
+					//$('#menu_table tbody').append(content);
+				});
+				$(this).dialog("close");
+			},
+			"取消": function(){
+				$(this).dialog("close");
+			}
+		}
+	});
+});
+</script>
+<style>
+#menuForm li{ height:26px; width:100%; float:left; padding:2px 0;}
+#menuForm li .fid-q{ width:100px; float:left;}
+#menuForm li .fid-input{ width:200px; height:24px; line-height:24px; border:1px solid #999;}
+
+</style>
+<include file="Public:footer"/>
+

@@ -1,0 +1,22 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2>密码修改</h2>
+  <form mothod="post" action="{:U('Admin/User/updatePwd')}" enctype="multipart/form-data" role="form">
+    <div class="form-group">
+      <label for="oldpassword">原始密码：</label>
+      <input type="password" class="form-control" id="oldpassword" placeholder="请输入原始密码"/>
+    </div>
+    <div class="form-group">
+      <label for="newpassword">新密码：</label>
+      <input type="password" class="form-control" id="newpassword" placeholder="请输入新的密码"/>
+    </div>
+    <div class="form-group">
+        <label for="repassword">确认密码：</label>
+        <input type="password" class="form-control" id="repassword" placeholder="请再次输入新的密码"/>
+    </div>
+    <button class="btn btn-success" type="submit">更新</button>
+</form>
+</div>
+<include file="Public:footer" />

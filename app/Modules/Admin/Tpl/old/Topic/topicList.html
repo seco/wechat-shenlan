@@ -1,0 +1,32 @@
+<include file="Public:title"/>
+<include file="Public:topMenu" />
+<include file="Public:wechatMenu" />
+<div class="main">
+  <h2 class="head-01">话题回复列表</h2>
+  <div class="add-menu">
+    <h3 class="mb20"><a href="{$addUrl}">添加话题回复</a></h3>
+    <div class="cb">
+      <table width="100%">
+        <tr>
+          <th>关键字</th>
+          <th>更新时间</th>
+          <th>操作</th>
+        </tr>
+	<empty name="itemList" id="vo">
+	  <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+        </empty>
+	<volist name="itemList" id="vo">
+	  <tr>
+            <td>{$vo[keyword]}</td>
+	    <td>{$vo[mtime_text]}</td>
+	    <td>
+	      <a href="{$editUrl}&id={$vo[id]}">编辑</a>
+	      <a href="{$delUrl}&id={$vo[id]}">删除</a>
+	    </td>
+	  </tr>
+	</volist>
+      </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

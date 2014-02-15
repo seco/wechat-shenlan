@@ -1,0 +1,17 @@
+<include file="Public:title" />
+<div class="container header-index tc">
+  <img src="{$siteInfo[logo_name]}" class="img-responsive">
+  <div class="container index">
+    <div class="row index-head">
+      <img src="../Public/images/index-bg.jpg"  class="img-responsive">
+    </div>
+    <div class="cont-nav  index-nav">
+      <div class="row">
+        <volist name="itemInfo[catList]" id="vo">
+          <div class="col-xs-6"><a href="{$vo[url]}">{$vo[title]}</a></div>
+        </volist>
+      </div>
+    </div>
+  </div>
+<include file="Public:footer" />
+

@@ -1,0 +1,31 @@
+<include file="../Public/_header" />
+<div class="so_main">
+	<div class="page_tit">被添加自动回复</div>
+	<div class="form2">
+		<form method="post" action="{:U('Admin/Wechat/doEdit')}" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="{$list[id]}" />
+			<dl class="lineD">
+				<dt>标题：</dt>
+				<dd><input type="text" name="push[title]" value="{$list[title]}" />
+				</dd>
+			</dl>
+			<dl class="lineD">
+				<dt>图片：</dt>
+				<dd><input type="file" name="pic" /></dd>
+				<notempty name="list[pic]"><dd><img src="{$list[pic]}" /></dd></notempty>
+			</dl>
+			<dl class="lineD">
+				<dt>内容：</dt>
+				<dd><textarea name="push[content]" cols="50" >{$list[content]}</textarea></dd>
+			</dl>
+			<dl class="lineD">
+				<dt>消息链接：</dt>
+				<dd><input type="text" name="push[url]" value="{$list[url]}" /></dd>
+			</dl>
+			<div class="page_btm">
+				<input type="submit" value="确定" class="btn_b" />
+			</div>
+		</form>
+	</div>
+</div>
+<include file="../Public/_footer" />

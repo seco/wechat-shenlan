@@ -1,0 +1,64 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2 class="head-01">详情</h2>
+  <ul class="set-main">
+    <form method="post" action="{$editUrl}" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{$itemInfo[id]}" />
+      <notempty name="itemInfo[cat_title]">
+      <li>
+      <div class="lab-name">文章名称：</div>
+      <div class="lab-con">
+          <p>{$itemInfo[cat_title]}</p>
+      </div>
+      </li>
+      </notempty>
+      <li>
+        <div class="lab-name">姓名：</div>
+        <div class="lab-con">
+          <p><input type="text" name="title" value="{$itemInfo[guest_name]}" class="long" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">手机号码：</div>
+        <div class="lab-con">
+          <p><input type="text"  value="{$itemInfo[phone]}" class="long" /></p>
+        </div>
+      <li>
+        <div class="lab-name">QQ：</div>
+        <div class="lab-con">
+          <p><input type="text"  value="{$itemInfo[qq]}" class="long" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">微信号码：</div>
+        <div class="lab-con">
+          <p><input type="text"  value="{$itemInfo[wechat]}" class="long" /></p>
+        </div>
+      </li>
+      <notempty name="fieldList">
+        <volist name="fieldList" id="vo">
+          <input type="hidden" name="field[{$vo[id]}][id]" value="{$vo[content_id]}" />
+          <li><div class="lab-name">{$vo[field_name]}：</div>
+            <div class="lab-con">
+              <p><input type="text"  value="{$vo[content]}" class="long"/></p>
+          </div></li>
+        </volist>
+      </notempty>
+      <li>
+        <div class="lab-name">内容：</div>
+        <div class="lab-con">
+          <p><textarea cols="80" rows="4">{$itemInfo[content]}</textarea></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">&nbsp;</div>
+        <div class="lab-con">
+          <p><input type="submit" class="submit" value="删除"/></p>
+        </div>
+      </li>
+    </form>
+  </ul>
+</div>
+<include file="Public:footer" />

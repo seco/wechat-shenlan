@@ -1,0 +1,55 @@
+<include file="Public:title" />
+<include file="Public:topMenu" />
+<include file="Public:wechatMenu" />
+<div class="main">
+  <h2 class="head-01">微商城设置选项</h2>
+  <ul class="set-main">
+    <form method="post" action="{$editUrl}" enctype="multipart/form-data">
+	<input type="hidden" name="id" value="{$itemInfo[id]}" />
+      <li>
+        <div class="lab-name">LOGO：</div>
+        <div class="lab-con">
+          <notempty name="itemInfo[logo_name]"><p><img src="{$itemInfo[logo_name]}" height="50" /></p></notempty>
+          <p><input type="file" name="pic" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">站点名称：</div>
+        <div class="lab-con">
+          <p><input type="text" name="site_name" value="{$itemInfo[site_name]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">固话：</div>
+        <div class="lab-con">
+          <p><input type="text" name="tel" value="{$itemInfo[tel]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">手机号码：</div>
+        <div class="lab-con">
+          <p><input type="text" name="mobile" value="{$itemInfo[mobile]}" />
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">QQ号码：</div>
+        <div class="lab-con">
+          <p><input type="text" name="qq" value="{$itemInfo[qq]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">邮箱：</div>
+        <div class="lab-con">
+          <p><input type="text" name="email" value="{$itemInfo[email]}" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">&nbsp;</div>
+        <div class="lab-con">
+          <p><input type="submit" class="submit" value="更新"/></p>
+        </div>
+      </li>
+    </form>
+  </ul>
+</div>
+<include file="Public:footer" />

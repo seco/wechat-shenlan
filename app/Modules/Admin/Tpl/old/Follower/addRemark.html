@@ -1,0 +1,30 @@
+<include file="Public:title" />
+<include file="Public:wechatMenu" />
+<div class="main">
+  <h2 class="head-01">添加备注</h2>
+  <div class="set-main">
+    <form method="post" action="{:U('Admin/Follower/doAddRemark')}">
+      <input type="hidden" name="open_id" value="{$open_id}" />
+      <li>
+        <div class="lab-name">微信ID：</div>
+        <div class="lab-con">
+          <p>{$open_id}</p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">备注：</div>
+        <div class="lab-con">
+          <p><input type="text" name="remark"></p>
+        </div>
+      </li>
+      <li>
+      <li>
+        <div class="lab-name">&nbsp;</div>
+        <div class="lab-con">
+          <p><input type="submit" class="submit" value="添加"/></p>
+        </div>
+      </li>
+    </form>
+  </div>
+</div>
+<include file="Public:footer" />

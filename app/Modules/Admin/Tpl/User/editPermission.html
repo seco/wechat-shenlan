@@ -1,0 +1,31 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$title}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<form name="add_form" method="post" action="{$editUrl}" enctype="multipart/form-data">
+		<div id="news" class="xml">
+			<input type="hidden" name="id" value="{$arrInfo[id]}" />
+			<dl><dt>头像</dt><dd><img src="{$arrInfo[cover_name]}" height="80" /></dd>
+				<dd><input type="file" value="{$arrInfo[cover]}" /></dd>
+				</dl>
+			<dl><dt>用户名</dt><dd><input type="text" value="{$arrInfo[username]}" /></dd></dl>
+			<dl><dt>手机号码</dt><dd><input type="text" value="{$arrInfo[phone]}" /></dd></dl>
+			<dl><dt>QQ</dt><dd><input type="text" value="{$arrInfo[qq]}" /></dd></dl>
+			<dl><dt>邮箱</dt><dd><input type="text" value="{$arrInfo[email]}" /></dd></dl>
+			<dl><dt>模板选择</dt><dd><input type="text" name="permission" value="{$arrInfo[permission]}" size="120" /></dd></dl>
+			<dl><dt>可用模板列表</dt><volist name="permissionList" id="vo">
+			<dd><input type="buttom" value="{$vo[name]}({$vo[id]})" />:&nbsp;
+			<volist name="vo['list']" id="voo">
+			<input type="buttom" value="{$voo[name]}({$voo[id]})" /></volist></dd></volist></dl>
+			<dl><dt>上次登录IP</dt><dd><input type="text" value="{$arrInfo[last_ip]}" /></dd></dl>
+			<dl><dt>上次登录时间</dt><dd><input type="text" value="{$arrInfo[last_time_text]}" /></dd></dl>
+			<dl><dt>&nbsp;</dt><dd><input type="submit" value="更新"/></dd></dl>
+		</div>
+		</form>
+</div>
+<include file="Public:footer" />

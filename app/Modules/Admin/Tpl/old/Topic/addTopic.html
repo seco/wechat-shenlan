@@ -1,0 +1,30 @@
+<include file="Public:title" />
+<include file="Public:topMenu" />
+<include file="Public:wechatMenu" />
+<div class="main">
+  <h2 class="head-01">新建话题回复</h2>
+  <ul class="set-main">
+    <form method="post" action="{$addUrl}" enctype="multipart/form-data">
+      <li>
+        <div class="lab-name">关键字：</div>
+        <div class="lab-con">
+          <p><input type="text" name="keyword" /></p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">启用状态：</div>
+        <div class="lab-con">
+          <p><input type="radio" name="status" value="1" />启用
+          <input type="radio" name="status" value="0" />禁用</p>
+        </div>
+      </li>
+      <li>
+        <div class="lab-name">&nbsp;</div>
+        <div class="lab-con">
+          <p><input type="submit" value="添加"/></p>
+        </div>
+      </li>
+    </form>
+  </ul>
+</div>
+<include file="Public:footer" />

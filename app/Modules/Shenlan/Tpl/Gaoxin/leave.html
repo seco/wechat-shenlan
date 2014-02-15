@@ -1,0 +1,15 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<!-- 内容 BEGIN -->
+    <div class="container content">
+      <div class="show">
+        <h2>我要留言</h2>
+        <form method="post" action="{$leaveUrl}">
+        <p>姓　　名<input type="text" class="form-control" name="name" ></p>
+        <p>留言内容<textarea  class="form-control" name="content" rows="3"></textarea></p>
+        <input type="submit" class="btn btn-warning btn-lg" value="提交" />
+        </form>
+      </div>  
+   </div>
+   <!-- END 内容 -->
+<include file="Public:footer" />

@@ -1,0 +1,25 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$title}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<form name="add_form" method="post" action="{$addUrl}" enctype="multipart/form-data">
+		<div id="news" class="xml">
+			<dl><dt>菜单选择</dt><dd><select name="pid">
+					<option value="0">--选择--</option>
+					<volist name="arrList" id="vo">
+					<option value="{$vo[id]}">{$vo[name_long]}</option>
+					</volist>
+				</select>
+				</dd></dl>
+			<dl><dt>名称</dt><dd><input type="text" name="name" /></dd></dl>
+			<dl><dt>链接</dt><dd><input type="text" name="url" /></dd></dl>
+			<dl><dt>&nbsp;</dt><dd><input type="submit" value="更新"/></dd></dl>
+		</div>
+		</form>
+</div>
+<include file="Public:footer" />

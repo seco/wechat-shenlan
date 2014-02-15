@@ -1,0 +1,35 @@
+<include file="Public:title"/>
+<include file="Public:topMenu" />
+<include file="Public:wechatMenu" />
+<div class="main">
+  <h2 class="head-01">列表列表</h2>
+  <div class="idea mb50">
+    <p>注释：注释内容</p>
+  </div>
+  <div class="add-menu">
+    <div class="cb">
+      <table width="100%">
+        <tr>
+          <th>预约者姓名</th>
+          <th>预约内容</th>
+          <th>预约时间</th>
+          <th>操作</th>
+        </tr>
+	<empty name="itemList" id="vo">
+	  <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+        </empty>
+	<volist name="itemList" id="vo">
+	  <tr>
+	    <td>{$vo[guest_name]}</td>
+            <td>{$vo[content]}</td>
+	    <td>{$vo[ctime_text]}</td>
+	    <td>
+	      <a href="{$delUrl}&id={$vo[id]}">删除</a>
+	    </td>
+	  </tr>
+	</volist>
+      </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

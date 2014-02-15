@@ -1,0 +1,16 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$arrView[title]}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<div id="news" class="xml">
+			<dl><dt>发送者ID</dt><dd><input type="text" value="{$arrInfo[send_id]}"></dd></dl>
+			<dl><dt>内容</dt></dd><textarea cols="70" rows="5">{$arrInfo[content]}</textarea></dd></dl>
+			<dl><dt>时间</dt><dd><input type="text" value="{$arrInfo[recive_time]|date='Y-d-m H:i', ###}" ></dd></dl>
+		</div>
+</div>
+<include file="Public:footer" />

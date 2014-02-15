@@ -1,0 +1,47 @@
+<include file="Public:header"/>
+<div class="so_main">
+	<div class="page_tit mb20">{$WebList[title]}管理</div>
+	<div class="toolbar">
+		<a href="{$WebList[add_url]}"class="btn"><span>添加</span></a>
+		<a href="javascript:void(0);" class="btn del-btn"><span>删除</span></a>
+	</div>
+	<div class="list">
+   <form action="{$WebList[dels_url]}" method="post" class="del-form">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th width="5%"><input type="checkbox" class="check-all" /></th>
+			<volist name="WebList" id="vo">
+			<th width="{$vo[width]}">{$vo[name]}</th>
+			</volist>
+            <th width="15%">操作</th>
+          </tr>
+        </thead>
+        <tbody>
+        <empty name="arrList" id="vo">
+            <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+          <else />
+            <volist name="arrList" id="vo">
+              <tr>
+                <td><input type="checkbox" name="id[]" value="{$vo[id]}"></td>
+				<volist name="" id="vo">
+                <td>{$vo[id]}</td>
+				</volist>
+                <td>
+					<a href="{$WebList[edit_url]}">编辑</a>
+					<a href="{$WebList[del_url]}">删除</a>
+                </td>
+              </tr>
+            </volist>
+          </empty>
+        </tbody>
+      </table>
+    </form>
+  </div>
+	<div class="toolbar">
+		<div class="result page">{$pageHtml}</div>
+		<a href="{$GWebList[add_url]}"class="btn"><span>添加</span></a>
+		<a href="javascript:void(0);" class="btn del-btn"><span>删除</span></a>
+	</div>
+</div>
+<include file="Public:footer" />

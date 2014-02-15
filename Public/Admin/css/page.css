@@ -1,0 +1,73 @@
+﻿*{padding:0;margin:0;font-size:14px; color:#6d6d6d; font-family:Microsoft YaHei;}
+
+.white{ background:#fff;} 	
+li{list-style-type:none;}
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}	
+h2 a{ float:right; margin-right:10px; color:#e85e03; font-size:12px;} 
+h2 span{ font-size:14px;  border-top:2px solid #e14e4e; border-right:1px solid #e1e1e1; background:#fff; display:inline-block; padding:0 30px; position:relative; top:-1px;}
+.submit{ cursor:pointer;} 
+.l_auto_top{width:600px; margin:0 auto;}
+.w_auto{width:980px; margin:0 auto;}
+
+/*主页头部*/
+.login-header{ height:260px; background:#00acf2;  }
+.login-header h1{ font-size:45px; color:#fff; height:50px; line-height:50px; padding-top:190px;}
+.login-content{ height:500px; background:#2f323b;}
+.login-content .login-text{ width:291px; height:51px; background:url(../images/input-bg.jpg);}
+.login-content .box input{ font-size:14px; height:23px; line-height:23px; border:0; margin:14px 10px 14px 0; width:170px; outline:none;}
+.login-content .box span{height:23px; line-height:23px; border:0; margin:14px 0; margin-left:20px; padding-left:28px;}
+.login-content .text span{ background:url(../images/user-name.gif) no-repeat left center; float:left;  }
+.login-content .text input{ width:160px;}
+.login-content .pass span{ background:url(../images/user-pass.gif) no-repeat left center; float:left;  }
+.login-content input.submit{ width:88px; height:39px; border:0; background:url(../images/login-btn.gif);}
+.login-content .btn{ height:39px; line-height:39px; color:#fff;}
+
+.header{ height:80px; background:#2f323b;line-height:80px; }
+.header h1{ width:200px; height:80px; background:#00acf2; font-size:28px; text-align:center; color:#fff; float:left;}
+.header h1 a{ background:#00acf2; font-size:28px; text-align:center; color:#fff; float:left;}
+.header ul li{ float:left; margin:0 20px;}
+.header ul li.select{ border-top:6px solid #00acf2; height:68px; line-height:68px; }
+.header ul li a{ font-size:14px; color:#fff; padding:0 10px;}
+.sidebar{ width:200px; float:left; background:#2f323b; padding-top:30px;}
+.sidebar dl{ padding-left:30px;}
+.sidebar dl dt{ padding-left:15px;}
+.sidebar dl dd{ padding-left:25px;} 
+.sidebar dl dt.select{ background:url(../images/zuojian.gif) no-repeat left center;}
+/*.sidebar dl dt a{ font-size:16px; font-weight:bold; color:#b2b2b2; line-height:40px;}*/
+.sidebar dl dt a{ font-size:16px; color:#00A7F0; line-height:40px;}
+.sidebar dl dd.left_children_select{background:url(../images/heijiao.gif) no-repeat right center; }
+.sidebar dl dd a{ font-size:14px; color:#eee; line-height:26px;}
+.sidebar dl dd.left_children_select a{ color:#fff;}
+.user{ color:#fff; font-size:12px;}
+.user img{ margin:25px 20px 0 10px;}
+
+
+.main{ float:right; padding:20px 30px; background:#fbfbfb; min-height:600px;}
+.main h2{   clear:both; font-size:20px; color:#00a7f0; border-bottom:1px solid #dcdcdc; margin-bottom:20px; margin-bottom:20px;}
+.main h2 a{ font-size:20px; color:#00a7f0; border-bottom:1px solid #dcdcdc; margin-bottom:20px; margin-bottom:20px; float:left; }
+ 
+.set-main li{ line-height:30px; clear:both; padding:10px 0; width:100%; float:left;}
+.lab-name{ width:130px; float:left; color:#333;}
+.lab-con{ float:left;}
+.lab-con span{ font-size:12px; color:#fe8502;}
+.lab-con input.long{ width:328px; height:28px; border:1px solid #dcdcdc; margin-right:10px;}
+.lab-con input.short{ width:109px; height:28px; border:1px solid #dcdcdc; margin-right:10px;}
+.lab-con input.submit{ width:72px; height:30px; color:#fff; background:url(../images/baocun-btn.gif); border:0;}
+
+.m-data dt{ float:left;}
+.m-data dd{ float:left; margin-left:20px;}
+.m-data dd table{ background:#fff;  border:1px solid #e7e7e7;}
+.m-data dd table td{ padding:5px 40px; border:1px solid #e7e7e7;}
+.m-data dd h4{ margin-bottom:10px;}
+
+.shortcut li{ float:left; margin:0 10px 10px 0;}
+.idea{ background:#fff4c7; padding:20px; line-height:24px;}
+.add-menu h3{ clear:left; padding:5px 10px; background:#f2f2f2; border:1px solid #dcdcdc; float:left;}
+.add-menu table,.add-menu table td,.add-menu table th{background:#fff;  border:1px solid #e7e7e7; text-align:center;}
+.add-menu table td{ padding:5px;}
+.add-menu table td a{  margin:0 5px; color:#3B5999;}
+.add-menu table th{ background:#eeeeee; height:30px;}
+.add-menu input{ width:200px; height:28px; border:1px solid #e7e7e7; background:#fff; margin:5px; text-align:left;}
+.add-menu input.short{ width:100px;}
+.add-menu input.small{ width:auto; height:auto; margin:0;}

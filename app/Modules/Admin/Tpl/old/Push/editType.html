@@ -1,0 +1,53 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$title}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+	<div class="edit">
+		<form method="post" action="{$editUrl}" enctype="multipart/form-data">
+			<input type="hidden" name="id" value="{$typeInfo[id]}" />
+			<dl><dt>消息类型</dt><dd><select name="msgtype">
+					<notempty name="typeInfo[msgtype]">
+					<option value="{$typeInfo[msgtype]}">{$typeInfo[msgtype]}</option>
+					<else />
+					<option value="">--选择--</option>
+					</notempty>
+					<option value="text">Text</option>
+					<option value="event">Event</option>
+					<option value="image">Image</option>
+					<option value="voice">Voice</option>
+			</select></dd></dl>
+			<dl><dt>事件类型</dt><dd><select name="event">
+					<notempty name="typeInfo[event]">{$typeInfo[event]}</option>
+					<option value="{$typeInfo[event]}">{$typeInfo[event]}</option>
+					<else />
+					<option value="">--选择--</option>
+					</notempty>
+					<option value="click">Click</option>
+					<option value="subscribe">Subscribe</option>
+					<option value="unsubscribe">Unsubscribe</option>
+			</select></dd></dl>
+			<dl><dt>事件值</dt><dd><input arr="text" name="eventkey" value="{$typeInfo[eventkey]}" ></dd></dl>
+			<dl><dt>关键字</dt><dd><input type="text" name="content" value="{$typeInfo[content]}" ></dd></dl>
+			<dl><dt>类型名称</dt><dd><input type="text" name="name" value="{$typeInfo[name]}" ></dd></dl>
+			<dl><dt>简介</dt><dd><textarea name="description" cols="60" rows="4">{$typeInfo[description]}</textarea></dd></dl>
+			<dl><dt>数据表名称</dt><dd><input type="text" name="table_name" value="{$typeInfo[table_name]}"></dd></dl>
+			<dl><dt>推文内容选择</dt><dd><input type="text" name="push_id" value="{$typeInfo[push_id]}" ></dd></dl>
+			<dl><dt>处理函数选择</dt><dd><select name="function_name">
+					<notempty name="typeInfo[function_name]">
+					<option value="{$typeInfo[function_name]}">{$typeInfo[function_name_text]}</option>
+					<else />
+					<option value="">--选择--</option>
+					</notempty>
+					<option value="getTextContent">文字内容</option>
+					<option value="getContentByIds">图文内容</option>
+					<option value="getContentByOrder">网站匹配内容</option></select></dd></dl>
+			<dl><dt>&nbsp;</dt><dd><input type="submit" value="提交"/></dd></dl>
+		</form>
+	</div>
+</div>
+<include file="Public:footer"/>

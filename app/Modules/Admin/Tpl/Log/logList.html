@@ -1,0 +1,16 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+    <h2 class="head-01">{$title}</h2>
+  <div class="add-menu">
+    <div class="cb">
+        <canvas id="myChart" width="900" height="400"></canvas>
+    </div>
+</div>
+<script>
+var ctx = document.getElementById("myChart").getContext("2d");
+var data = {$data};
+var myNewChart = new Chart(ctx).Line(data);
+</script>
+<include file="Public:footer" />

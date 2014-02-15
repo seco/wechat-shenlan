@@ -1,0 +1,73 @@
+*{padding:0;margin:0;font-size:14px; color:#3e3e3e;  font-family:Microsoft YaHei;}
+ body{ background:#fff;}
+
+.thumbnail{ border:0; padding:0; margin:0; background:none;}
+
+
+
+/* 头部 */
+.header { height: 50px; overflow: hidden;}
+.header h2{  line-height:50px; color:#FFF; text-align:center; font-size:20px; font-family:Microsoft YaHei;}
+
+/* banner幻灯片 */
+.banner { position:relative;}
+.banner dd {
+    background: url(../images/bj.png);
+	width:100%;
+    color: #FFFFFF;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    overflow: hidden;
+    padding: 0 10px;
+	position:absolute;
+	bottom:0; left:0;
+}
+/* 详情 */
+.details{ background:#fff; min-height:500px;}
+.list h4,.details h4{ padding:0 0 10px;  font-size:18px; font-family:Microsoft YaHei;}
+
+
+/* 列表 */
+.list{ background:#ececec; min-height:500px;}
+.list .row{ padding-top:15px; padding-bottom:15px; border-bottom:1px solid #c4c4c4; border-top:1px solid #fff;}
+.list .col-xs-4{ padding-right:0;}
+.list h4 a{ font-size:18px; }
+.list .col-xs-8 h4{ margin-bottom:10px;} 
+.list a{ color:#3e3e3e;}
+
+/* 网格 */
+.grid{ background:#fff; padding:20px 0; min-height:500px;}
+.grid dt{ padding-bottom:5px;}
+.grid dt img:hover{ border:1px solid #3DB0D3;}
+.grid dd{ text-align:center; padding-bottom:20px;}
+.grid a:hover{text-decoration:none;}
+
+
+/*表单*/
+.form{min-height:500px;}
+.form h4{ font-size:18px; font-family:Microsoft YaHei; margin-bottom:10px;}
+
+/*分页*/
+.page a,.page span{ border:1px solid #d4d4d4; background:#fff; padding:5px 10px; color:#666; margin:0 10px; display:inline-block;}
+.page span{ background:#2A8DEB; color:#fff; border-color:#2A8DEB;}
+
+/*评论列表*/
+.theme{ height:50px; line-height:50px;}
+.theme em,.theme img{ float:left;line-height:50px; margin-right:5px; font-size:16px;}
+
+.comment-list .col-xs-12{border-bottom: 1px solid #ECECEC;}
+.leaves h4{ font-size:15px; color:#666;}
+.leaves p{ font-size:13px; color:#666; border-bottom: 1px solid #ECECEC; padding-bottom:5px;}
+.form{ background:#fff;}
+
+ 
+
+ 
+
+@media (min-width: 640px) {
+   .container {
+    width: 640px;
+  }
+}
+ 

@@ -1,0 +1,36 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2 class="head-01">留言列表</h2>
+  <div class="add-menu">
+    <div class="cb">
+      <table width="100%">
+        <tr>
+          <th>留言者姓名</th>
+          <th>手机号码</th>
+          <th>留言内容</th>
+          <th>留言时间</th>
+          <th>操作</th>
+        </tr>
+	<empty name="itemList" id="vo">
+	  <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+        </empty>
+	<volist name="itemList" id="vo">
+	  <tr>
+	    <td>{$vo[guest_name]}</td>
+            <td>{$vo[phone]}</td>
+            <td>{$vo[content]}</td>
+	    <td>{$vo[ctime_text]}</td>
+	    <td>
+              <a href="{$editUrl}&id={$vo[id]}">查看</a>
+	      <a href="{$delUrl}&id={$vo[id]}">删除</a>
+	    </td>
+	  </tr>
+	</volist>
+      </table>
+      {$pageHtml}
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

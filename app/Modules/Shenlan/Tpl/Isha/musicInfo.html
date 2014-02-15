@@ -1,0 +1,12 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<div class="container">
+  <div class="detail-cont">
+    <h2>{$title}</h2>
+    <h4>{$itemInfo[ctime_text]}</h4>
+    <audio src="<if condition='$itemInfo[media_url]' width="100%">{$itemInfo[media_url]}</if>{$itemInfo[media_name]}" controls="controls">
+      对不起，您的浏览器不支持此类型
+    </audio>
+    </div>
+  </div>
+</include file="Public:footer" />

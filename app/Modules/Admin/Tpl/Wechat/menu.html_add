@@ -1,0 +1,34 @@
+<form method="post" action="https://api.weixin.qq.com/cgi-bin/menu/create?access_token={$access_token}" >
+	<input type='text' name='content' value="{
+     'button':[
+     {	
+		'type'=>'view',
+		'name'=>'首页',
+		'url'=>'http://www.kindherz.com/index.php?g=Wechat'
+		},
+      {
+		'name'=>'会员服务',
+		'sub_button':[
+		{
+		'type'=>'view',
+		'name'=>'课程信息',
+		'url'=>'http://www.kindherz.com/index.php?g=Wechat&m=Index&a=getInfo'
+		},
+		{
+		'type'=>'view',
+		'name'=>'我要请假',
+		'url'=>'http://www.kindherz.com/index.php?g=Wechat&m=Index&a=Leave'
+		},
+		{
+		'type'=>'view',
+		'name'=>'我的音乐',
+		'url'=>'http://www.kindherz.com/index.php?g=Wechat&m=Music&a=music'
+		}]
+	  }	
+      {
+		'type'=>'view',
+		'name'=>'在线预约',
+		'url'=>'http://www.kindherz.com/index.php?g=Wechat&m=Course&a=index'
+	  }]}" />
+	   <input type=submit value="新增菜单" />
+   </form>

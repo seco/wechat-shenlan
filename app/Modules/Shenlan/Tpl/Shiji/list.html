@@ -1,0 +1,97 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<!-- 内容 BEGIN -->
+<div class="container list pb50">
+ 
+    <form method="post" action="{:U('Shenlan/Shiji/search', array('blue_key'=>$_SESSION['blue_key']))}" />
+    <input type="hidden" name="id" value="{$itemInfo[catInfo][id]}" />
+    <div class="marriage-list clearfix pt10 pb10 row"  >
+          <div class="col-xs-3">性别:</div>
+          <div class="col-xs-9 mb10">
+        <select name="sex" class="form-control">
+            <notempty name="sex"><option value="{$sex}">{$sex}</option></notempty>
+          <option value ="男">男</option>
+          <option value ="女">女</option>
+        </select>
+    </div>
+
+          <div class="col-xs-3">年龄:</div>
+          <div class="col-xs-9 mb10">
+        <select name="age" class="form-control">
+            <notempty name="age"><option value="{$age}">{$age_name}</option></notempty>
+            <option value="<?php
+            $age1 = (date(Y) - 30).date(md);
+            $age2 = (date(Y) - 20).date(md);
+            $result = 'between '.$age1.' and '.$age2;
+            echo $result;
+            ?>">20-30</option>
+
+            <option value="<?php
+            $age1 = (date(Y) - 40).date(md);
+            $age2 = (date(Y) - 31).date(md);
+            $result = 'between '.$age1.' and '.$age2;
+            echo $result;
+            ?>">31-40</option>
+            <option value="<?php
+            $age1 = (date(Y) - 50).date(md);
+            $age2 = (date(Y) - 41).date(md);
+            $result = 'between '.$age1.' and '.$age2;
+            echo $result;
+            ?>">41-50</option>
+            <option value="< <?php echo (date('Y')-50).date(md); ?>">50以上</option>
+      </select>
+  </div>
+  
+          <div class="col-xs-3">
+              婚姻状况:</div>
+        <div class="col-xs-9 mb10">
+        <select name="marry" class="form-control">
+            <notempty name="marry"><option value="{$marry}">{$marry}</option></notempty>
+            <option value="未婚">未婚</option>
+            <option value="离异">离异</option>
+            <option value="丧偶">丧偶</option>
+        </select>
+     </div>
+    <div class="pb10 mt20 clearfix cb col-xs-12">
+      <input type="submit" class="btn btn-sm btn-success fr" value="搜索" style=" background:#FF587D; border:0;" />
+      <a href="{:U('Shenlan/Shiji/order', array('blue_key'=>$_SESSION['blue_key']))}"  class="btn btn-sm btn-success fl" style="   border:0; color:#fff;">我要征婚 </a>
+ 
+    </div>
+    </form>
+  </div>
+  <volist name="itemInfo[catList]" id="vo">
+    <div class="row">
+      <div class="col-xs-4 tc">
+          <a href="{$vo[url]}" class="thumbnail"><img class="img-responsive" src="<empty name='vo[cover_name]'>../Public/images/none.jpg<else />{$vo[cover_name]}</empty>"></a>
+      </div>
+      <div class="col-xs-8">
+          <h4>{$vo[title]}</h4>
+          <p>性别：{$vo[sex]}</p>
+          <p>年龄：
+          <?php
+            $age = date(Y) - substr($vo[age], 0, 4);
+            if(date(m) < substr($vo[age], 4, 2)){
+                $age--;
+            }elseif(date(m) == substr($vo[age], 4, 2)){
+            if(date(d) <= substr($vo[age], 6, 2)){
+                    $age--;
+                }
+            }
+            echo $age;
+            ?>
+            </p>
+          <p>婚姻状况：{$vo[marry]}</p>
+          <p>{$vo[description]}</p>
+	  <a href="{$vo[url]}" class="btn btn-sm btn-success fr mt5" style=" background:#FF587D; border:0; color:#fff;">详细介绍</a>
+      </div>
+    </div>
+  </volist>
+  <div class="page cb tc">
+    {$itemInfo[pageHtml]}
+  </div>
+<!-- END 内容 -->
+<include file="Public:footer" />
+<style>
+.marriage-list .col-xs-3{ padding-right:0;}
+
+</style>

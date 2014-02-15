@@ -1,0 +1,62 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<!-- 内容 BEGIN -->
+<div class="container">
+  <div class="form pb100 pt30 pb50 mb50 pr">
+    <div id="message" class="alert alert-info w tc none pa" style=" bottom:200px; z-index:999; width:100%; background:#4EAFE9; color:#fff;">提交成功</div>
+
+    <div class="col-xs-12">
+    <h4>我要征婚</h4>
+    <form id="leave" onsubmit="return show()" >
+        <p>姓名<span style="color:red;">*</span><input type="text" class="require_name form-control"  name="guest_name"></p>
+      <notempty name="fieldList">
+        <volist name="fieldList" id="vo">
+        <p>{$vo[field_name]}<span style="color:red;">*</span><input type="{$vo[type]}" class="require_{$key} form-control" name="field[{$vo[id]}][content]" /></p>
+          </volist>
+        </notempty>
+        <p>联系电话<span style="color:red;">*</span><input type="phone" class="require_phone form-control" name="phone"></p>
+        <p>自我介绍<textarea class="form-control" name="content"></textarea></p>
+      <input type="submit" class="btn btn-warning btn-block mt10 f16" value="提  交" />
+    </form>
+  </div>
+</div>
+<!-- END 内容 -->
+<script type="text/javascript" >
+$(function(){
+    $("input").focus(function(){
+    $("input").css("border-color","#CCCCCC");
+});
+        })
+function show(){ 
+    if($(".require_name").val()==''){
+        $(".require_name").css("border-color", "#A94442");
+        return false;
+    }else if($(".require_0").val() == ''){
+        $(".require_0").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_1").val() == ''){
+        $(".require_1").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_2").val() == ''){
+        $(".require_2").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_3").val() == ''){
+        $(".require_3").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_phone").val() == ''){
+        $(".require_phone").css("border-color", '#A94442');
+        return false;
+    }else if($(".require_content").val() == ''){
+        $(".require_content").css("border-color", '#A94442');
+        return false;
+    }else{
+        $.post("{:U('Shenlan/Leave/doAddLeave', array('blue_key'=>$_SESSION['blue_key']))}", $("#leave").serialize(), function(result){
+        $("#message").fadeIn("slow");
+        setTimeout("$('#message').fadeOut('slow')", 1500);
+        setTimeout("window.history.back()", 2000);
+        })
+	    return false;
+    }
+}
+</script>
+<include file="Public:footer" />

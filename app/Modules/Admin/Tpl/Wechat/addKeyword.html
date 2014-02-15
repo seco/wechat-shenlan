@@ -1,0 +1,101 @@
+<include file="../Public/_header" />
+<div class="so_main">
+  <div class="page_tit">添加关键字</div>
+  
+  <div class="form2">
+    <form method="post" action="{:U('Admin/Wechat/doAddKeyword')}" enctype="multipart/form-data">
+    <dl class="lineD">
+      <dt>关键字：</dt>
+      <dd>
+        <input name="push[keyword]" type="text" size="60" />
+      </dd>  
+    </dl>
+    <dl class="lineD">
+      <dt>回复内容：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="push[content]"></textarea>
+        <p>内容要控制在100字以内</p>
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit"  value="确定" class="btn_b"/>
+    </div>
+    </form>
+  </div>
+</div>
+<include file="../Public/_footer" />
+
+<script type="text/javascript">
+//编辑器
+
+  UE.getEditor('myEditor',{
+        initialFrameWidth : 700,
+        initialFrameHeight: 200
+    });
+</script>
+<script>
+
+function setDate(time){
+   
+   var Arr = time.split('-');
+   var now = new Date(Arr[0],Arr[1]-1,Arr[2]);   
+    // + 1 代表日期加，- 1代表日期减   
+   now.setDate((now.getDate() + 1));   
+   var year = now.getFullYear();   
+   var month = now.getMonth() + 1;   
+   var day = now.getDate();   
+   if (month < 10) {   
+           month = '0' + month;   
+             }   
+    if (day < 10) {   
+           day = '0' + day;   
+               }   
+  
+     return year + '-' + month + '-' + day;   
+   };   
+function cDayFunc1(){ 
+  var intime = $dp.cal.getNewDateStr();
+  var outtime = $('#outtime').val();
+  var inArr = intime.split('-');
+  var outArr = outtime.split('-');
+  var startDate = new Date(inArr[0],inArr[1]-1,inArr[2]);
+  var endDate = new Date(outArr[0],outArr[1]-1,outArr[2]);
+  var diffDay = dateDiff('d',startDate,endDate);
+  $('.days').val(diffDay);
+  
+}
+function cDayFunc2(){
+     var outtime = $dp.cal.getNewDateStr();
+  var intime = $('#intime').val();
+  var inArr = intime.split('-');
+  var outArr = outtime.split('-');
+  var startDate = new Date(inArr[0],inArr[1]-1,inArr[2]);
+  var endDate = new Date(outArr[0],outArr[1]-1,outArr[2]);
+  var diffDay = dateDiff('d',startDate,endDate);
+  $('.days').val(diffDay);
+
+}
+function dateDiff(interval,date1,date2){ 
+  var long = date2.getTime() - date1.getTime();//相差毫秒
+  if(long <= 0){
+     date1= date1.getTime()+ 24*3600*1000;
+     date1 = new Date(date1);
+     var  month = date1.getMonth()+1;
+     var  day = date1.getDate();
+     var outtime = date1.getFullYear()+'-'+(month<10? '0'+month:month)+'-'+(day<10 ? "0"+ day : day);
+       $("#outtime").val(outtime);
+    return 1;
+    }
+  switch(interval.toLowerCase()){ 
+    case "y": return parseInt(date2.getFullYear() - date1.getFullYear()); 
+    case "m": return parseInt((date2.getFullYear() - date1.getFullYear())*12 + (date2.getMonth()-date1.getMonth())); 
+    case "d": return parseInt(long/1000/60/60/24); 
+    case "w": return parseInt(long/1000/60/60/24/7); 
+    case "h": return parseInt(long/1000/60/60); 
+    case "n": return parseInt(long/1000/60); 
+    case "s": return parseInt(long/1000); 
+    case "l": return parseInt(long); 
+  } 
+} 
+
+</script>

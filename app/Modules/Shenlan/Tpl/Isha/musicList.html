@@ -1,0 +1,20 @@
+<include file="Public:title" />
+<include file="Public:header" />
+   <!-- 内容 BEGIN -->
+    <div class="container">
+      <div class="row music">
+        <img src="{$itemInfo[cover_name]}" class="img-responsive">
+        <ul>
+          <volist name="itemList" id="vo">
+          <li><a href="{$vo[url]}">{$vo[name]}<em>&gt;</em></a></li>
+          </volist>
+        </ul>  
+      </div> 
+      <div class="bs-example">
+		<div class="tc discussion-list page">
+		{$pageHtml}
+		</div>
+      </div> 
+    </div>
+    <!-- END 内容 -->
+<include file="Public:footer" />

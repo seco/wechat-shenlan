@@ -1,0 +1,17 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<!-- 内容 BEGIN -->
+    <div class="container content">
+      <div class="show">
+        <h2>在线预约</h2>
+        <form method="post" action="{:U('Shenlan/Reserve/doAddReserve', array('blue_key'=>$_SESSION['blue_key']))}">
+        <p>姓　　名<input type="text" class="form-control" name="guest_name" ></p>
+        <p>手机号码<input type="text" class="form-control" name="phone" ></p>
+        <p>Q Q 号码<input type="text" class="form-control" name="qq" ></p>
+        <p>预约内容<textarea  class="form-control" name="content" rows="3"></textarea></p>
+        <input type="submit" class="btn btn-warning btn-lg" value="提交" />
+        </form>
+      </div>  
+   </div>
+   <!-- END 内容 -->
+<include file="Public:footer" />

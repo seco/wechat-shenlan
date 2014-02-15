@@ -1,0 +1,28 @@
+  <!--搜索 BEGIN-->
+  <div class="search">
+    <form action="#" method="post">
+      <table width="100%">
+		  <th width="80">{$search}：</th>
+		  <td width="100"><input type="text" name="keyword" /></td>
+		  <th width="80">内容类型选择：</th>
+		  <td>
+			<select name="pid">
+                          <option value="0">--不限--</option>
+				<volist name="typeList" id="vo">
+				<option value="{$vo[id]}">{$vo[name]}</option>
+				</volist>
+			</select>
+		<!--/td>
+		<th width="80">子类型选择：</th>
+		<td>
+			<select name="type_id">
+				<volist name="typeList" id="vo">
+				<option value="{$vo[id]}">{$vo[name]}</option>
+				</volist>
+	</select-->
+          <input type="submit" value="搜 索" class="btn search-btn" />
+        </td>
+      </table>
+    </form>
+  </div>
+  <!--END 搜索--> 

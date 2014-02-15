@@ -1,0 +1,29 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<div class="container pb50">
+  <div class="details pb100">
+    <div class="col-xs-12 pt20">
+      <h4>{$title}</h4>
+      <p>{$itemInfo[catInfo][mtime_text]}</p>
+    </div>
+    <div class="mt20 tc col-xs-12">
+      <img class="img-responsive" src="{$itemInfo[catInfo][cover_name]}">
+    </div>
+    <div class="col-xs-12 mt20">
+      {$itemInfo[catInfo][content]}
+    </div>
+    <div class="col-xs-12 mt20" id="plugin">
+</div>
+  </div>
+</div>
+<script>
+$(function(){
+        var haha="{$itemInfo[catInfo][plugin]}";
+        if(haha == "comment"){
+var id={$itemInfo.catInfo.id};
+var length=4;
+$("#plugin").load("{:U('Shenlan/Leave/getLeaveList', array('blue_key'=>$_SESSION['blue_key']))}", {id: id, length: length});
+}
+})
+</script>
+<include file="Public:footer" />

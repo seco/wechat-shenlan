@@ -1,0 +1,82 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2>新建微网栏目</h2>
+  <form method="post" action="{$addUrl}" enctype="multipart/form-data" role="form">
+    <input type="hidden" name="cat[fid]" value="{$catInfo.id}">
+    <div class="form-group">
+        <label for="news[title]">标题：</label>
+        <input type="text" id="news[title]" class="form-control" placeholder="请输入栏目标题" />
+    </div>
+    <empty name="catInfo[id]">
+      <div class="form-group">
+        <label for="ico">图标：</label>
+        <input type="file" id="ico" class="form-control" />
+      </div>
+    </empty>
+    <div>
+      <label for="pic">封面：</label>
+      <input type="file" id="pic" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="route[keyword]">关键字：</label>
+      <input type="text" name="route[keyword]" class="form-control" placeholder="请输入唯一关键字" />
+    </div>
+    <div class="form-group">
+      <label for="news[description]">描述：</label>
+      <textarea id="news[description]" rows="3" class="form-control" placeholder="请输入栏目的描述"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="news[content]">内容：</label>
+      <textarea id="news[content]" rows="3" class="form-control" ></textarea>
+    </div>
+    <notempty name="fieldList">
+      <volist name="fieldList" id="vo">
+        <div class="form-group">
+          <label for="field[{$vo[id]}][content]">{$vo[field_name]}：</label>
+          <eq name="vo[type]" value="textarea">
+            <textarea id="field[{$vo[id]}][content]" rows="3" class="form-control"></textarea>
+          <else />
+            <input type="{$vo[id][type]}" id="field[{$vo[id]}][content]" class="form-control"/>
+          </eq>
+        </div>
+      </volist>
+    </notempty>
+    <div class="radio">
+      <volist name="temList" id="vo">
+        <label class="radio-inline">
+          <input type="radio" name="cat[template_id]" id="cat[template_id]" value="{$vo[id]}" class="form-control" />{$vo[name]}
+        </label>
+      </volist>
+      或填写自定义模板：<input type="text" name="cat[template_self]" value="{$template_default}" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>评论功能：</label>
+      <label class="radio-inline">
+        <input type="radio" name="plugin[plugin_id]" value="1" class="form-control" />开启&nbsp;
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="plugin[plugin_id]" value="0" class="form-control" checked="checked" />关闭
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="cat[display_order]">排列顺序：</label>
+      <input type="number" id="cat[display_order]" class="form-control" placeholder="数字越小越往前" />
+    </div>
+    <div class="radio">
+      <label for="cat[status]">启用状态：</label>
+      <input type="radio" name="cat[status]" value="1" />启用
+      <input type="radio" name="cat[status]" value="0" />禁用
+    </div>
+    <button type="submit" class="btn btn-primary">添加</button>
+  </form>
+</div>
+<include file="Public:footer" />
+<!--编辑器 BEGIN-->
+<script type="text/javascript" src="__PUBLIC__/js/other/editor/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/other/editor/ueditor/ueditor.all.js"></script>
+<script type="text/javascript">
+UE.getEditor('content');
+</script>
+<!--END 编辑器-->

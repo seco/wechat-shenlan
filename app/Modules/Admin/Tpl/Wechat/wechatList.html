@@ -1,0 +1,35 @@
+<include file="Public:header"/>
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+    <h2 style="color:#428BCA;">微信公众账号列表</h2>
+    <a href="{$addUrl}" class="btn btn-primary" role="button">添加公众账号</a>
+    </br>
+    </br>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th>账号LOGO</th>
+                <th>账号名称</th>
+                <th>创建时间</th>
+                <th>操作</th>
+            </tr>
+	        <empty name="itemList" id="vo">
+	        <tr><td colspan="10" class="empty">暂无相关信息</td></tr>
+            </empty>
+	        <volist name="itemList" id="vo">
+	        <tr>
+	            <td class="pt10 pb10" width="15%"><img src="{$vo[logo_name]}" height="50" /></td>
+	            <td>{$vo[wechat_name]}</td>
+	            <td>{$vo[mtime_text]}</td>
+	            <td width="15%">
+                      <a href="{$accessUrl}&id={$vo[id]}" class="btn btn-primary btn-sm" role="button">管理</a>
+	              <a href="{$editUrl}&id={$vo[id]}" class="btn btn-success btn-sm" role="button">编辑</a>
+	            </td>
+	        </tr>
+	        </volist>
+        </table>
+    </div>
+  </div>
+</div>
+<include file="Public:footer"/>

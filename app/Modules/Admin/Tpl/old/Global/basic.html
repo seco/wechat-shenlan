@@ -1,0 +1,81 @@
+<include file="Public:header" />
+<div class="so_main">
+
+
+  <div class="page_tit">基本信息</div>
+  
+  <div class="edit">
+      <form method="post" action="{:U('Admin/Global/doEditSetting')}" enctype="multipart/form-data">
+    <dl>
+      <dt>网站名称：</dt>
+      <dd>
+        <input name="site_name" type="text" value="{$site_name}" size="60" />
+      </dd>
+    </dl>
+    <dl>
+      <dt>网站URL：</dt>
+      <dd>
+        <input name="site_url" type="text" value="{$site_url}" size="60" />
+      </dd>  
+    </dl>
+    <dl>
+      <dt>备案号：</dt>
+      <dd>
+        <input name="site_icp" type="text" value="{$site_icp}" size="60" />
+        <p>例如：京ICP备04000001号</p>
+      </dd>
+    </dl>
+    
+    <dl>
+      <dt>电话：</dt>
+      <dd>
+        <input name="service_tel" type="text" value="{$service_tel}" size="60" />
+      </dd>
+    </dl>
+	<dl>
+		<dt>座机：</dt>
+		<dd>
+		<input name="service_home" type="text" value="{$service_home}" size="60" />
+		</dd>
+	</dl>
+	<dl>
+		<dt>传真：</dt>
+		<dd>
+		<input name="service_fax" type="text" value="{$service_fax}" size="60" />
+		</dd>
+	</dl>
+	<dl>
+		<dt>手机：</dt>
+		<dd>
+		<input name="service_phone" type="text" value="{$service_phone}" size="60" />
+		</dd>
+	</dl>
+	<dl>
+		<dt>地址：</dt>
+		<dd>
+		<input name="service_address" type="text" value="{$service_address}" size="60" />
+		</dd>
+	</dl>
+    <dl>
+      <dt>客服QQ：</dt>
+      <dd>
+        <input name="service_qq" type="text" value="{$service_qq}" size="60" />
+      </dd>
+    </dl>
+    <dl>
+      <dt>客服email：</dt>
+      <dd>
+        <input name="service_email" type="text" value="{$service_email}" size="60" />
+      </dd>
+    </dl>
+    <dl>
+      <dt>&nbsp;</dt>
+      <dd><input type="submit"  value="提 交" class="btn_b"/></dd>
+    </dl>
+  
+    </form>
+  </div>
+  
+  
+</div>
+<include file="Public:footer" />

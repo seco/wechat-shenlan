@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+      <div class="list-group">
+        <if condition="$current eq wechat">
+
+          <!--微信管理界面-->
+          <volist name="tabList" id="vo">
+            <a href="." class="list-group-item">{$vo.name}</a>
+            <volist name="vo[children]" id="voo">
+              <a href="{$voo.url}" class="list-group-item <eq name='left_current' value='$voo.spell'>active</eq>">&nbsp;-&nbsp;{$voo.name}</a>
+            </volist>
+          </volist>
+          <else/>
+          <!--微信管理界面结束-->
+
+          <!--用户管理界面-->
+          <a href="." class="list-group-item">我的信息</a>
+          <a href="{:U('Admin/User/basic')}" class="list-group-item <eq name='left_current' value='basic'>active</eq>">&nbsp;-&nbsp;基本信息</a>
+          <a href="{:U('Admin/User/editPwd')}" class="list-group-item <eq name='left_current' value='editPwd'>active</eq>">&nbsp;-&nbsp;更新密码</a>
+          <a href="." class="list-group-item <eq name='left_current' value='wechat'> class='active'</eq>">公众账号</a>
+          <a href="{:U('Admin/Wechat/wechatList')}" class="list-group-item <eq name='left_current' value='wechatList'>active</eq>">&nbsp;-&nbsp;公众账号列表</a>
+          <!--用户管理界面结束-->
+
+        </if>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+
+        <!--展开左侧菜单-->
+        <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">展开菜单</button>
+        </p>
+        <!--展开左侧菜单结束-->

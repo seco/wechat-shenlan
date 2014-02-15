@@ -1,0 +1,39 @@
+<include file="Public:header" />
+
+<div class="so_main">
+
+  <div class="page_tit">SEO设置</div>
+
+  <div class="edit">
+      <form method="post" action="{:U('Admin/Global/doEditSeo')}" enctype="multipart/form-data">
+    <dl>
+      <dt>首页SEO标题：</dt>
+      <dd>
+        <input name="seo_index_title" type="text" value="{$seo_index_title}" size="40" />
+        <p>一般不超过80字</p>
+      </dd>
+    </dl>
+    <dl>
+      <dt>首页SEO关键字：</dt>
+      <dd>
+        <input name="seo_index_keyword" type="text" value="{$seo_index_keyword}" size="40" />
+        <p>3-5个关键字</p>
+      </dd>
+    </dl>
+    <dl>
+      <dt>首页SEO描述：</dt>
+      <dd>
+        <textarea  name="seo_index_description" cols="50" rows="3">{$seo_index_description}</textarea>
+       <p>一般不超过200字</p>
+      </dd>
+    </dl>
+    <dl>
+      <dt>&nbsp;</dt>
+      <dd><input type="submit"  value="提 交" class="btn_b"/></dd>
+    </dl>
+    </form>
+  </div>
+  
+</div>
+
+<include file="Public:footer" />

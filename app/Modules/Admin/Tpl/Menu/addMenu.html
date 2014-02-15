@@ -1,0 +1,39 @@
+<include file="Public:header"/>
+<!--页面标题 BEGIN-->
+<div class="tabs">
+  <ul>
+	  <li><a href="javascript:void(0)" class="current">{$arrView[title]}</a></li>
+  </ul>
+</div>
+<!--END 页面标题-->
+<div class="edit">
+		<form name="add_form" method="post" action="{$arrView[addUrl]}" enctype="multipart/form-data">
+			<notempty name="menuInfo">
+			<volist name="menuInfo" id="vo">
+			<dl><dt>主菜单{$key+1}</dt>
+			<dd><input type="text" value="{$vo[name]}"><input type="text" value="{$vo[type]}" ><input type="text" value="{$vo[url]}{$vo[key]}"></dd>
+				<notempty name="vo[sub_button]" >
+				<volist name="vo[sub_button]" id="voo">
+				<dt>子菜单{$key+1}</dt>
+				<dd><input type="text" value="{$voo[name]}"><input type="text" value="{$voo[type]}" ><input type="text" value="{$voo[url]}{$voo[key]}"></dd>
+				</volist></notempty>
+			</volist></dl>
+			</notempty>
+		</form>
+		<form name="add_form" method="post" action="{$arrView[addUrl]}" enctype="multipart/form-data">
+			<dl><dt>添加菜单</dt><dd>菜单内容</dd>
+				<dt>名称</dt><dd><input type="text" name="arr[name]"></dd>
+				<dt>类型</dt><dd><select name="arr[type]">
+				<option value="">--选择类型--</option>
+				<option value="view">view</option>
+				<option value="click">click</option>
+				</select></dd>
+				<dt>链接</dt><dd><input type="text" name="arr[url]"></dd>
+				<dt>key值</dt><dd><input type="text" name="arr[key]"></dd>
+			<dt>父菜单编号</dt><dd><input type="text" name="arr[mark]"></dd></dl>
+			<dl><dt>&nbsp;</dt><dd><input type="submit" value="提交"/>&nbsp;
+				<a href="{:U('Admin/Menu/createMenu')}"><input type="button" value="生成菜单"></a>
+				<a href="{:U('Admin/Menu/clearMenu')}"><input type="button" value="清除"></a></dd></dl>
+		</form>
+</div>
+<include file="Public:footer" />

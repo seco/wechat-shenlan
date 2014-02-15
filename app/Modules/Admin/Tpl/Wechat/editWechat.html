@@ -1,0 +1,49 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+    <h2>公众账号信息</h2>
+    <form role="form">
+        <input type="hidden" name="id" value="{$itemInfo[id]}" />
+        <div class="form-group">
+            <label for="pic">LOGO：</label>
+            <notempty name="itemInfo[logo_name]"><p><img src="{$itemInfo[logo_name]}" height="50"/></p></notempty>
+            <input type="file" class="form-control" id="pic">
+            <p class="help-block">请上传账号LOGO文件</p>
+        </div>
+        <div class="form-group">
+            <label for="wechat_name">账号名称：</label>
+            <input type="text" class="form-control" id="wechat_name" value="{$itemInfo.wechact_name}" placeholder="请输入公众账号名称">
+        </div>
+        <div class="form-group">
+            <label for="url">接口URL：</label>
+            <p class="form-control-static">{$itemInfo.url}</p>
+        </div>
+        <div class="form-group">
+            <label for="token">接口配置token：</label>
+            <input type="text" class="form-control" id="token" value="{$itemInfo.token}" placeholder="请输入微信平台接口配置token">
+        </div>
+        <div class="form-group">
+            <label for="appid">开发者唯一凭据：</label>
+            <input type="text" class="form-control" id="appid" value="{$itemInfo.appid}" placeholder="请输入开发者唯一凭证">
+        </div>
+        <div class="form-group">
+            <label for="appsecrect">开发者唯一凭据密钥：</label>
+            <input type="text" class="form-control" id="appsecrect" value="{$itemInfo.appsecrect}" />
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="status" id="status1" value="1" <eq name="itemInfo[status]" value="1"> checked="checked" </eq> />启用
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" name="status" id="status2" value="0"  <eq name="itemInfo[status]" value="0"> checked="checked" </eq>/>禁用
+            </label>
+        </div>
+        <button type="submit" class="btn btn-success">更新</button>
+    </form>
+ 
+ </ul>
+</div>
+<include file="Public:footer" />

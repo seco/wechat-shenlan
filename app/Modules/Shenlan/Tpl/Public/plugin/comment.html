@@ -1,0 +1,50 @@
+<!-- 评论插件 -->
+<!-- author: chan -->
+<!-- version: 2014-1-4 -->
+
+<!-- 显示图标 -->
+<div class="row theme">
+  <div class="col-xs-6"><img src="../Public/images/t-hua.gif" class="img-responsive"><em>{$itemInfo[catInfo][comments]}</em></div>
+  <div class="col-xs-6"><a class="thumbnail" href="###"><img src="../Public/images/xin.gif" class="img-responsive"><em>{$itemInfo[catInfo][views]}</em></a></div>
+</div>
+<!-- 图标显示结束 -->
+
+<!-- 评论列表 -->
+<div class="clearfix comment-list">
+  <volist name="leaveList" id="vo">
+    <div class="col-xs-12 clearfix pt10 pb10 ">
+      <h4>{$vo[guest_name]}</h4>
+      {$vo[content]}
+      <div class="data-t clearfix">{$vo[ctime_text]}<a href="###" class="btn btn-default btn-sm fr fuhui" >回复</a></div>
+      <div class="leaves none pt20">
+        <form method="post" action="{:U('Shenlan/Leave/doAddLeave', array('blue_key'=>$_SESSION['blue_key']))}">
+          <input type="hidden" name="cat_id" value="{$itemInfo[catInfo][id]}" />
+          <input type="hidden" name="fid" value="{$vo[id]}" />
+          <input type="text" class="form-control mb10" name="guest_name" placeholder="输入您的姓名">
+          <textarea rows="3" class="form-control" name="content" placeholder="输入您的观点"></textarea>
+          <input type="submit" class="btn btn-warning btn-block mt10 f16" value="提 交">
+        </form>
+      </div>
+    </div>
+  </volist>
+</div>
+<!-- 评论列表结束 -->
+
+
+<div class="pt20">
+  <a class="thumbnail other-jia tc" href="###" id="get_more"><img src="../Public/images/jia-other.gif">点击加载更多...</a>
+</div>
+
+
+<!-- 评论表单 -->
+<div class="col-xs-12 discussion">
+  <p>参加讨论</p>
+  <form method="post" action="{:U('Shenlan/Leave/doAddLeave', array('blue_key'=>$_SESSION['blue_key']))}" >
+    <input type="hidden" name="cat_id" value="{$itemInfo[catInfo][id]}" />
+    <input type="hidden" name="fid" value="{$vo[id]}" />
+    <input type="text" name="guest_name" class="form-control mt10 mb10" placeholder="输入您的姓名" />
+    <textarea rows="3" class="form-control" name="content" placeholder="输入您的观点"></textarea>
+    <input type="submit" class="btn btn-warning btn-block mt10 f16" value="提 交">
+  </form>
+</div>
+<!-- 评论表单结束 -->

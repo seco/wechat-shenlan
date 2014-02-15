@@ -1,0 +1,36 @@
+<include file="Public:header" />
+<include file="Public:topMenu" />
+<include file="Public:leftMenu" />
+<div class="col-xs-12 col-sm-9">
+  <h2>我的信息</h2>
+  <form method="post" action="{$editUrl}" enctype="multipart/form-data" role="form">
+    <input type="hidden" name="id" value="{$itemInfo[id]}" />
+    <div class="form-group">
+      <label for="pic">头像：</label>
+      <p><img src="{$itemInfo[avatar_name]}" height="80" /></p>
+      <input type="file" class="form-control" id="pic" value="{$itemInfo[avatar]}" />
+    </div>
+    <div class="form-group">
+      <label for="username">用户名：</label>
+      <input type="text" class="form-control" id="username" value="{$itemInfo[username]}" placeholder="请输入用户名"/>
+    </div>
+    <div class="form-group">
+      <label for="mobile">手机号码：</label>
+      <input type="tel" class="form-control" id="mobile" value="{$itemInfo[mobile]}" placeholder="请输入您的手机号码"/>
+    </div>
+    <div class="form-group">
+      <label for="qq">QQ：</label>
+      <input type="number" class="form-control" id="qq" value="{$itemInfo[qq]}" placeholder="请输入您的QQ号码"/>
+    </div>
+    <div class="form-group">
+      <label for="email">邮箱：</label>
+      <input type="email" class="form-control" id="email" value="{$itemInfo[email]}" placeholder="请输入您的邮箱地址" />
+    </div>
+    <div class="form-group">
+      <label>本次登录IP：</label>
+      <p class="form-control-static">{$_SESSION[current_ip]}</p>
+    </div>
+    <button class="btn btn-success" type="submit">更新</button>
+  </form>
+</div>
+<include file="Public:footer" />

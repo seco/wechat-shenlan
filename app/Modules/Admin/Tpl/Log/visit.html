@@ -1,0 +1,14 @@
+<include file="Public:title" />
+<include file="Public:wechatMenu" />
+<div class="main">
+  <h2 class="head-01">接口调用记录</h2>
+  <div class="add-menu">
+    <div class="cb">
+        <canvas id="myChart" width="1200" height="400"></canvas>
+    </div>
+</div>
+<script>
+var ctx = document.getElementById("myChart").getContext("2d");
+var data = {$data};
+var myNewChart = new Chart(ctx).Line(data);
+

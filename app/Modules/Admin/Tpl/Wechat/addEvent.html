@@ -1,0 +1,82 @@
+<include file="Public:header" />
+<div class="so_main">
+	<div class="page_tit">{$arrView[title]}</div>
+  
+  <div class="form2">
+    <form method="post" action="{:U('Admin/About/update')}" enctype="multipart/form-data">
+      <input type="hidden" name="id" value="{$list['id']}"/>
+    <dl class="lineD">
+      <dt>文章标题：</dt>
+      <dd>
+        <input name="title" type="text" value="{$list['title']}" size="60" />
+      </dd>  
+    </dl>
+    <dl class="lineD">
+      <dt>简介：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="instro">{$list['instro']}</textarea>
+        <p>简介内容要控制在100字以内</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>文章内容：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="content" id="myEditor">{$list['content']}</textarea>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>SEO标题：</dt>
+      <dd>
+        <input name="data[meta][title]" type="text" value="{$meta.seo_title}" size="60" />
+      </dd>  
+    </dl>
+    <dl class="lineD">
+      <dt>SEO关键字：</dt>
+      <dd>
+        <input name="data[meta][keyword]" type="text" value="{$meta.seo_keyword}" size="60" />
+        <p>多个关键字用空格分隔</p>
+      </dd>
+    </dl>
+    
+    <dl class="lineD">
+      <dt>SEO内容：</dt>
+      <dd>
+        <textarea cols="50" rows="3" name="data[meta][description]">{$meta.seo_description}</textarea>
+        <p>字数控制住100以内</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>开始时间:</dt>
+      <dd>
+        <input type="text" name="ptime" value="{$list.ptime|date='Y-m-d',###}" onFocus="WdatePicker({minDate:'$time', lang:'zh-cn',dchanged:cDayFunc1})" id="intime"/>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>结束时间:</dt>
+      <dd>
+        <input type="text" name="otime" <if condition="$list.otime neq 0">value="{$list.otime|date='Y-m-d',###}"</if> onFocus="WdatePicker({minDate:setDate($('#intime').val()), lang:'zh-cn',dchanged:cDayFunc2})" id="outtime">
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>顺序:</dt>
+      <dd>
+        <input type="text" name="a_order" value="{$list.a_order}"/>
+        <p>数字越大，越靠前，最大999</p>
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit"  value="确定" class="btn_b"/>
+    </div>
+    </form>
+  </div>
+</div>
+<include file="../Public/footer" />
+
+<script type="text/javascript">
+//编辑器
+
+  UE.getEditor('myEditor',{
+        initialFrameWidth : 700,
+        initialFrameHeight: 200
+    });
+</script>

@@ -1,0 +1,35 @@
+<include file="Public:header" />    
+    <!-- 内容 BEGIN -->
+    <div class="container index shouye">
+      <div class="row">
+		  <a href="{:U('Shenlan/Chunhop/caseList', array('blue_key'=>$_SESSION[blue_key]))}">
+          <div class="col-xs-5"><em>作品展示</em>CHUNHOP SHOWCASE</div>
+		  <div class="col-xs-7"><img class="img-responsive" src="../Public/images/img-1.jpg"/></div>
+        </a>
+      </div>
+      <div class="row">
+		  <a href="{:U('Shenlan/Chunhop/videoList', array('blue_key'=>$_SESSION[blue_key]))}">
+			<div class="col-xs-7"><img class="img-responsive" src="../Public/images/img-2.jpg"/></div>
+          <div class="col-xs-5"><em>婚礼视频</em>WEDDING VIDEOS</div>
+        </a>
+      </div>
+      <div class="row">
+		  <a href="{:U('Shenlan/Chunhop/setList', array('blue_key'=>$_SESSION[blue_key]))}">  
+          <div class="col-xs-5"><em>精品套系</em>CHUNHOP FINE SET</div>
+		  <div class="col-xs-7"><img class="img-responsive" src="../Public/images/img-3.jpg"/></div>
+        </a>
+      </div>
+      <div class="row">
+		  <a href="{:U('Shenlan/Chunhop/consulting', array('blue_key'=>$_SESSION[blue_key]))}">   
+			<div class="col-xs-7"><img class="img-responsive" src="../Public/images/img-4.jpg"/></div>
+          <div class="col-xs-5"><em>免费咨询</em>FREE CONSULTING</div>
+        </a>
+      </div>
+      <div class="row">
+		  <a href="{:U('Shenlan/Chunhop/about', array('blue_key'=>$_SESSION[blue_key]))}">
+          <div class="col-xs-5"><em>关于珍合</em>ABOUT CHUNHOP</div>
+		  <div class="col-xs-7"><img class="img-responsive" src="../Public/images/img-5.jpg"/></div>
+        </a>
+      </div>
+    </div>
+	<include file="Public:footer" />

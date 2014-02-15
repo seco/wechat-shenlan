@@ -1,0 +1,24 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<!-- 内容 BEGIN -->
+<div class="container pb50">
+  <div class="grid clearfix">
+    <volist name="itemInfo[catList]" id="vo">
+    <div class="col-xs-6">
+      <a class="hunsha" href="{$vo[url]}">
+        <dl class="ad">
+          <dt>
+            <img class="img-responsive" src="{$vo[cover_name]}">
+          </dt>
+          <dd>{$vo[title]}</dd>
+        </dl>
+      </a>
+    </div>
+    </volist>
+    <div class="page cb tc">
+      {$itemInfo[pageHtml]}
+    </div>
+  </div>
+</div>
+<!-- END 内容 -->
+<include file="Public:footer" />
