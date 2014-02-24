@@ -1,2 +1,6 @@
 data/*
-app/Runtime/*
+data/attach
+app/Runtime/Cache
+app/Runtime/Data
+app/Runtime/Logs
+app/Runtime/Temp
