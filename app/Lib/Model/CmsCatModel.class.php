@@ -127,7 +127,7 @@ class CmsCatModel extends CommonModel{
         $arrMap['fid']       = array('eq', $fid);
         $arrMap['wechat_id'] = array('eq', $_SESSION['wechat_id']);
         $arrMap['status']    = array('eq', '1');
-        $arrOrder = array('display_order');
+        $arrOrder = array('display_order', 'mtime desc');
         //分页
         $count = D('CmsCat')->getCount($arrMap);
         $page = page($count);

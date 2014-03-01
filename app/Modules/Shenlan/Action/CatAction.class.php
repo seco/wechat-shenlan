@@ -48,13 +48,18 @@ class CatAction extends HomeCommonAction{
     public function cat(){
         $id = intval($this->_get('id'));
         $catInfo = D('CmsCat')->getCatInfo($id);
+        $indexList = D('CmsCat')->getCatInfo('0');
         //浏览量增加
         D('CmsCat')->addView($id);
         //留言记录
         D('Log')->setVisitLog($id);
         //模板赋值
-        $this->assign('itemInfo', $catInfo);
-        $this->assign('title', $catInfo['catInfo']['title']);
+        $data = array(
+            'title' => $catInfo['catInfo']['title'],
+            'itemInfo' => $catInfo,
+            'indexList' => $indexList,
+        );
+        $this->assign($data);
         $this->display($catInfo['template']);
     }
 

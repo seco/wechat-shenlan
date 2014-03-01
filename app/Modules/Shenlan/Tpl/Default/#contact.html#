@@ -1,0 +1,52 @@
+<include file="Public:title" />
+<include file="Public:header" />
+<div class="container pb50">
+  <div class="details pb100">
+    <div class="col-xs-12 pt20">
+      <h4>{$title}</h4>
+    </div>
+    <div class="mt20 tc col-xs-12">
+        <img class="img-responsive" src="http://api.map.baidu.com/staticimage?center={$_SESSION[setting][latitude]},{$_SESSION[setting][longitude]}&width=600&height=240&zoom=11">
+    </div>
+    <div class="col-xs-12 mt20">
+        <p>联系电话：</p>
+        <a href="tel:{$_SESSION[setting][mobile]}">{$_SESSION[setting][mobile]}</a>
+    <p>年龄：{:date('Y')-1991}</p>
+    <p>当前月份：{:date(m)}</p>
+    <p>年龄2：
+          <?php
+          $vo[age] = '19850210';
+            $age = date(Y) - substr($vo[age], 0, 4);
+            if(date(m) < substr($vo[age], 4, 2)){
+                $age--;
+            }elseif(date(m) == substr($vo[age], 4, 2)){
+            if(date(d) <= substr($vo[age], 6, 2)){
+                    $age--;
+                }
+            }
+            echo $age;
+            ?>
+    <form method="post" action="">
+    <p>出生日期：<input type="date" name="date"></p>
+    <p>手机号码：<input type="tel" name="phone"></p>
+    <p>性别：<input type="radio" name="sex"></p>
+    <p>Range:<input type="range" name="range"></p>
+    <p>搜索：<input type="search"></p>
+    <input type="submit" value="submit">
+</form>
+    </div>
+    <div class="col-xs-12 mt20" id="plugin">
+</div>
+  </div>
+</div>
+<script>
+$(function(){
+        var haha="{$itemInfo[catInfo][plugin]}";
+        if(haha == "comment"){
+var id={$itemInfo.catInfo.id};
+var length=4;
+$("#plugin").load("{:U('Shenlan/Leave/getLeaveList', array('blue_key'=>$_SESSION['blue_key']))}", {id: id, length: length});
+}
+})
+</script>
+<include file="Public:footer" />

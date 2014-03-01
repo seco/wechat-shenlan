@@ -5537,6 +5537,7 @@ city:[
     $json = str_replace('city', '"city"', $json);
     $json = str_replace('region', '"region"', $json);
     $json = json_decode($json, true);
+    print_r($json);exit;
     foreach($json['zone'] as $k1=>$v1){
         $insert['pid'] = 0;
         $insert['name'] = $v1['region']['name'];

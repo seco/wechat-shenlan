@@ -1,0 +1,11 @@
+<div data-role="header" data-theme="c" data-position="fixed">
+  <a href="javascript:window.history.back()"><img src="../Public2.0/images/back.png"></a>
+  <h1>{$title}</h1>
+  <a href="###" id="popup"><img src="../Public2.0/images/menu.png"/></a>
+</div>
+<ul data-role="listview" data-inset="true"  data-input="#filter-for-listview" class="popup">
+  <li><a href="{$indexUrl}">首页</a></li>
+  <volist name="indexList[catList]" id="vo">
+    <li><a href="{$vo.url}">{$vo.title}</a></li>
+  </volist>
+</ul>

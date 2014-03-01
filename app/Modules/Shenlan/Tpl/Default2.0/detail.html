@@ -1,0 +1,11 @@
+<include file="../Public2.0/header" />
+<div data-role="page" id="main">
+  <include file="../Public2.0/navigation" />
+  <div class="details about pl20 pr20 pb50">
+    <h2>{$title}</h2>
+    <em>{$itemInfo.catInfo.mtime_text}浏览量：888        500</em>
+    <div class="img mt10 mb10"><img src="{$itemInfo.catInfo.cover_name}"/></div>
+    {$itemInfo.catInfo.content}
+  </div>
+</div>
+<include file="../Public2.0/footer" />
