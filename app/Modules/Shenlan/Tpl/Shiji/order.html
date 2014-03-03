@@ -35,6 +35,7 @@
             <option value="硕士">硕士</option>
             <option value="博士">博士</option>
         </select></p>
+        <p>籍贯<span style="color:red;">*</span></p><p><input type="text" class="require_4 form-control" name="field[17][content]" /></p>
         <p>联系电话<span style="color:red;">*</span></p><p><input type="phone" class="require_phone form-control" name="phone"></p>
         <p>自我介绍</p><textarea class="form-control" name="content"></textarea></p>
       <input type="submit" class="btn btn-warning btn-block mt10 f16" value="提  交" />
@@ -51,33 +52,28 @@ $(function(){
 function show(){ 
     if($(".require_name").val()==''){
         $(".require_name").css("border-color", "#A94442");
-        return false;
     }else if($(".require_0").val() == ''){
         $(".require_0").css("border-color", '#A94442');
-        return false;
     }else if($(".require_1").val() == ''){
         $(".require_1").css("border-color", '#A94442');
-        return false;
     }else if($(".require_2").val() == ''){
         $(".require_2").css("border-color", '#A94442');
-        return false;
     }else if($(".require_3").val() == ''){
         $(".require_3").css("border-color", '#A94442');
-        return false;
+    }else if($(".require_4").val() == ''){
+        $(".require_3").css("border-color", '#A94442');
     }else if($(".require_phone").val() == ''){
         $(".require_phone").css("border-color", '#A94442');
-        return false;
     }else if($(".require_content").val() == ''){
         $(".require_content").css("border-color", '#A94442');
-        return false;
     }else{
         $.post("{:U('Shenlan/Leave/doAddLeave', array('blue_key'=>$_SESSION['blue_key']))}", $("#leave").serialize(), function(result){
         $("#message").fadeIn("slow");
         setTimeout("$('#message').fadeOut('slow')", 1500);
         setTimeout("window.history.back()", 2000);
         })
-	    return false;
     }
+	return false;
 }
 </script>
 <style>

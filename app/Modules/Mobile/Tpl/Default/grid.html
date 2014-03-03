@@ -1,0 +1,22 @@
+<include file="../Public2.0/header" />
+<div data-role="page" id="main">
+  <include file="../Public2.0/navigation" />
+  <div class="p5">
+    <div class="ui-grid-a commodity-list">
+      <volist name="itemInfo[catList]" id="vo">
+        <div <if condition="($key % 2) == 0">class="ui-block-a p5"
+             <else />class="ui-block-b p5"</if>>
+          <div class="commodity-nei">
+            <a href="{$vo.url}"><img src="{$vo.cover_name}">
+              <div class="commodity-name">
+                <span>{$vo.title}</span>
+                <em>50</em>
+              </div>
+            </a>
+          </div>
+        </div>
+      </volist>
+    </div>
+  </div>
+</div>
+<include file="../Public2.0/footer" />

@@ -19,7 +19,7 @@ return array(
 	
 	'APP_AUTOLOAD_PATH'=>'@.TagLib',
 	'APP_GROUP_MODE'=>1,
-	'APP_GROUP_LIST'=>'Shenlan, Admin',
+	'APP_GROUP_LIST'=>'Shenlan, Admin, Mobile, Blue',
 	'DEFAULT_GROUP'=>'Admin',
 	'SHOW_PAGE_TRACE'=>true,
 

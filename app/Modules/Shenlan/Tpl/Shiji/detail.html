@@ -4,7 +4,7 @@
   <div class="details pb100">
       </br>
     <div class="mt20 tc col-xs-12">
-        <img class="img-responsive" src="<empty name='vo[cover_name]'>../Public/images/none.jpg<else />{$itemInfo[catInfo][cover_name]}</empty>">
+        <img class="img-responsive" src="<empty name='itemInfo[catInfo][cover_name]'>../Public/images/none.jpg<else />{$itemInfo[catInfo][cover_name]}</empty>">
     </div>
     <div class="col-xs-12 mt20">
         <p><span style="font:18px; color:#563D7C">性别：</span>{$itemInfo.catInfo.sex}</p>
@@ -23,6 +23,7 @@
         </p>
         <p><span style="color:#563D7C">婚姻状况：</span>{$itemInfo.catInfo.marry}</p>
         <p><span style="color:#563D7C">身高：</span>{$itemInfo.catInfo.height}</p>
+        <p><span style="color:#563D7C">籍贯：</span>{$itemInfo.catInfo.native}</p>
         <p><span style="color:#563D7C">学历：</span>{$itemInfo.catInfo.grade}</p>
         <p><span style="color:#563D7C">自我介绍：</span></p>
         <p>&nbsp;&nbsp;&nbsp;&nbsp;{$itemInfo.catInfo.me}</p>
