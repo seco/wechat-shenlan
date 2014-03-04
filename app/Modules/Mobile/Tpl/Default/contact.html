@@ -1,20 +1,22 @@
 <include file="../Public/header" />
 <div data-role="page" id="main">
-  <include file="../Public/navigation" />
-  <div class="pl20 pt30 pr20 pb50">
-    <div class="contact">
-      <h2>地图导航</h2>
-      <p><img src="http://api.map.baidu.com/staticimage?center={$site.latitude},{$site.longitude}&width=600&height=240&zoom=11"></p>
+    <include file="../Public/navigation" />
+    <div class="contact  pl20 pr20 tc pb50">
+        <div class="contact-item clearfix">
+            <h2>一键拨号</h2>
+            <p><a href="tel://{$site.mobile}"><img src="../Public/images/dianhua2.png">{$site.mobile}</a></p> 
+        </div>
+        <div class="contact-item clearfix">
+            <h2>联系地址</h2>
+            <img class="mt30 mb30" src="../Public/images/zuobiao2.png">
+            <p>地址 ：{$site.address}</p>
+            <p>电话： {$site.tel}</p>
+            <p>E-mail：{$site.email}</p> 
+        </div>
+        <div class="contact-item clearfix map">
+            <h2>地图导航</h2>
+            <p><img src="http://api.map.baidu.com/staticimage?center={$site.latitude},{$site.longitude}&width=600&height=240&zoom=11"/></p> 
+        </div>
     </div>
-    <div class="contact">
-      <h2>一键拨号</h2>
-      <p><a href="tel://{$site.mobile}">咨询电话：{$site.mobile}</a></p>
-    </div>
-    <div class="contact">
-      <h2>联系地址：</h2>
-      <p>公司地址: {$site.address}</p>
-      <p>EMail: {$site.email}</p>
-    </div>
-  </div>
-</div>
+    
 <include file="../Public/footer" />

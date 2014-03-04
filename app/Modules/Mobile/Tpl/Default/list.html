@@ -1,25 +1,17 @@
 <include file="../Public/header" />
-<div data-role="page" id="main">
-  <include file="../Public/navigation" />
-  <div class="p5">
-    <div class="commodity-list">
-      <volist name="list" id="vo">
-        <div class="commodity-del clearfix">
-          <div class="commodity-nei-q">
-            <a href="{$vo.url}"><img src="{$vo.cover_name}"></a>
-          </div>
-          <div class="commodity-nei-h">
+<div data-role="page" id="main">  
+    <include file="../Public/navigation" />
+    <div class="product-list pl20 pr20">
+        <volist name="list" id="vo">
+        <a class="product-item clearfix" href="{$vo.url}">
+            <h2>{$vo.title}</h2>
             <dl>
-              <dt>{$vo.title}</dt>
-              <dd>{$vo.description}</dd>
+                <dt><img src="{$vo.cover_name}"/></dt>
+                <dd>{$vo.description}
+                <p><em><img src="../Public/images/simg1.gif">{$vo.mtime_text}<img src="../Public/images/simg2.gif">{$vo.views}<img src="../Public/images/simg3.gif">{$vo.ups}</em></p></dd>
             </dl>
-            <p>浏览量：100          88</p>
-            <p>2014-02-22  17:20:33</p>
-          </div>
-
-        </div>
-      </volist>
-    </div>
-  </div>
-</div>
+        </a>
+        </volist>
+    </div>     
+ 
 <include file="../Public/footer" />
