@@ -7,6 +7,7 @@
     <div class="cb">
       <table width="100%">
         <tr>
+            <th>信息类型</th>
           <th>留言者姓名</th>
           <th>手机号码</th>
           <th>留言内容</th>
@@ -18,6 +19,7 @@
         </empty>
 	<volist name="itemList" id="vo">
 	  <tr>
+          <td><notempty name="vo[cat_title]">{$vo[cat_title]}<else />留言信息</notempty></td>
 	    <td>{$vo[guest_name]}</td>
             <td>{$vo[phone]}</td>
             <td>{$vo[content]}</td>

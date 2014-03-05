@@ -2,12 +2,21 @@
 <div data-role="page" id="main">
     <include file="../Public/navigation" />
     <div class="leave  pl20 pr20 tc pb50 mt20">
-        <ul><form id="form" method="post" action="{:U('Message/addMessage', array('key'=>1))}">
-            <li><input type="text" class="name" name="name" placeholder="姓名"></li>
-            <li><input type="tel" class="number" name="phone" placeholder="手机号"></li>
-            <li><textarea cols="40" rows="8" name="content" placeholder="请输入留言内容..."></textarea></li>
-            <li><input type="submit" value="提交"></li>
+        <ul><form id="message" rel="external" onSubmit="return addMessage()">
+            <li><input type="text" class="name" name="guest_name" autofocus="autofocus" placeholder="姓名"></li>
+            <li><input type="tel" class="number" pattern="[0-9]{11}" name="phone" placeholder="手机号"></li>
+            <li><textarea cols="40" rows="8" name="content" pattern="*" placeholder="请输入留言内容..."></textarea></li>
+            <li><button class="ui-shadow ui-btn ui-corner-all" type="submit">提交</button></li>
         </ul>
     </div> 
- 
+    <div id="popup" data-role="popup" data-overlay-theme="b" data-theme="b" class="ui-content">
+    </div>
 <include file="../Public/footer" />
+<script>
+    function addMessage(){
+        $.post("{:U('Message/addMessage', array('key'=>'1'))}", $("#message").serialize(), function(data){
+                $("#popup").html(data).popup("open");
+                }, 'json');
+        return false;
+    }
+</script>

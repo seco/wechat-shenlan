@@ -1,8 +1,16 @@
 <div class="footer tc">
-    CopyRight© 2009-2013 运动营养微商城
-</div>
+    CopyRight© 2009-2013 深蓝微官网
 </div>
 
+<div data-theme="a" data-display="overlay" data-position="right" id="rightpanel3" data-role="panel" class="ui-panel ui-panel-position-right ui-panel-display-overlay ui-body-b ui-panel-animate ui-panel-closed">
+<ul data-role="listview" data-inset="true"  data-input="#filter-for-listview" class="popup">
+    <li><a href="{$home}" rel="external">首页</a></li>
+    <volist name="menuList" id="vo">
+    <li><a href="{$vo.url}" rel="external">{$vo.title}</a></li>
+    </volist>
+</ul>
+	 
+</div>
  <script src="../Public/jquerymobile/jquery.mobile-1.4.2.min.js"></script>
 </body>
 </html>    

@@ -32,15 +32,15 @@ body{ background:#e3e3e3}
 .ui-header a span.ui-btn-inner{ padding:0; border:0; padding-top:6px;}
 .ui-btn-corner-all{ border-radius:0;}
 
-.product-item{ display:block; margin-top:10px; padding:10px 10px 0 10px; background:#fff; box-shadow:1px 1px 5px #ccc; border-radius:5px;}
+.product-item{ float:left; display:block; width:50%; margin-top:10px;  background:#fff; box-shadow:1px 1px 5px #ccc; border-radius:5px;}
 .product-item h2{ font-size:16px; line-height:26px; margin-bottom:10px;}
-.product-item dt{ float:left; margin-right:5%; width:45%; margin-bottom:10px;}
+.product-item dt{ float:left;   margin-bottom:10px;}
 .product-item dd{ float:left; margin-bottom:10px; width:50%;}
 .product-item dd p{ font-weight:normal; text-indent:0;}
 .product-item dd em{ float:right; margin-top:10px; font-size:12px; color:#999;}
 .product-item dd em img{ display:inline; margin:0 0 0 5px;}
 
-.popup{  width:30%; position:absolute; top:0; right:-30%; display:none; }
+ 
 
 .details h2{ font-size:18px; padding:10px 0;}
 .details em{ font-size:12px; color:#999; padding:5px 0;}
@@ -62,3 +62,18 @@ body{ background:#e3e3e3}
 .leave input.ui-btn-hidden{ color:#fff; background:#6eb74b; opacity:10;}
 .leave .ui-btn span{ color:#fff; z-index:999;}
 .ui-page-theme-a a, html .ui-bar-a a, html .ui-body-a a, html body .ui-group-theme-a a{ color:#333;}
+
+.commodity-nei{ padding:5px; background:#fff; box-shadow:2px 2px 5px #999;}
+.commodity-nei a{ display:block; position:relative; }
+.commodity-nei img{ width:100%;}
+.commodity-del{ width:96%; margin:0 2%; padding:10px 0; border-bottom:1px dashed #b9b9b9;}
+.commodity-nei-q{ width:50%; float:left;}
+.commodity-nei-q img{ width:100%; padding:5px; background:#fff;}
+.commodity-nei-h{ width:40%; float:right;}
+.commodity-nei-h dl,.commodity-nei-h dt{ padding-bottom:10px;}
+.commodity-nei-h dd{ font-size:12px;}
+.commodity-nei-h p{ font-size:12px; color:#999;}
+
+.commodity-name{ width:100%; height:30px; line-height:30px; text-indent:10px; background:url(../images/baitouming.png); position:absolute; bottom:0px;}
+.commodity-name span{ font-size:12px; font-weight:normal; color:#fff; }
+.commodity-name em{ float:right; font-size:12px;; padding:0 5px; background:url(../images/xin.png) no-repeat left center; color:#fff;}

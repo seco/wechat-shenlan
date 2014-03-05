@@ -22,7 +22,7 @@ class LeaveAction extends WechatCommonAction{
         //获取留言列表
 		$leaveList = $leaveObj->getList($arrField, $arrMap, $arrOrder, $page->firstRow, $page->listRows);
         //格式化
-		$arrFormatField = array('ctime_text');
+		$arrFormatField = array('cat_title', 'ctime_text');
 		foreach($leaveList as $k=>$v){
 			$leaveList[$k] = $leaveObj->format($v, $arrFormatField);
 		}

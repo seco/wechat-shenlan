@@ -16,6 +16,6 @@ class MessageAction extends MobileCommonAction
         $data['wechat_id'] = $this->wechat_id;
         $data['open_id'] = $this->guest_open_id;
         D('CmsLeave')->add($data);
-        $this->success('留言成功');
+        echo '操作成功';
     }
 }

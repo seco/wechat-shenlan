@@ -1,17 +1,19 @@
 <include file="../Public/header" />
-<div data-role="page" id="main">  
+<div data-role="page" id="main" class="pr">  
     <include file="../Public/navigation" />
-    <div class="product-list pl20 pr20">
+    <div class="ui-grid-a commodity-list">
         <volist name="list" id="vo">
-        <a class="product-item clearfix" href="{$vo.url}">
-            <h2>{$vo.title}</h2>
-            <dl>
-                <dt><img src="{$vo.cover_name}"/></dt>
-                <dd>{$vo.description}
-                <p><em><img src="../Public/images/simg1.gif">{$vo.mtime_text}<img src="../Public/images/simg2.gif">{$vo.views}<img src="../Public/images/simg3.gif">{$vo.ups}</em></p></dd>
-            </dl>
-        </a>
+        <div <eq name="key%2" value="0">class="ui-block-a p5"<else />class="ui-block-b p5"</eq>>
+                 <div class="commodity-nei">
+                   <a  href="{$vo.url}"  rel="external"><img src="{$vo.cover_name}"/>
+                   <div class="commodity-name">
+                     <span>{$vo.title}</span>                                           
+                     <em>{$vo.ups}</em>
+                   </div>
+                 </a>
+			</div>  
+          </div>
         </volist>
     </div>     
- 
+
 <include file="../Public/footer" />
