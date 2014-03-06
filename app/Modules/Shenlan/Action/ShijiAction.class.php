@@ -69,7 +69,7 @@ class ShijiAction extends HomeCommonAction{
         $id = intval($this->_get('id'));
         $this->assign('title', '给他/她留言');
         $this->assign('itemInfo', array('catInfo'=>array('id'=>$id)));
-        $this->display('Default:leave');
+        $this->display('Shiji:leave');
     }
 
     /**
