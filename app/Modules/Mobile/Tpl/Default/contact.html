@@ -15,8 +15,38 @@
         </div>
         <div class="contact-item clearfix map">
             <h2>地图导航</h2>
-            <p><img src="http://api.map.baidu.com/staticimage?center={$site.latitude},{$site.longitude}&width=600&height=240&zoom=11"/></p> 
+            <p><a href="###"><img src="http://api.map.baidu.com/staticimage?center={$site.longitude},{$site.latitude}&width=600&height=240&zoom=11"/></a></p> 
         </div>
     </div>
     
 <include file="../Public/footer" />
+<script>
+window.onload = function getLocation(){
+    navigator.geolocation.getCurrentPosition(setLocation);
+}
+function setLocation(position){
+    var brower = navigator.appName
+    var version = navigator.appVersion
+    alert(brower+version);
+
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    var is_iphone = new RegExp("iPhone");
+    var is_android = new RegExp("Android");
+
+    if(is_iphone.test(version)){
+        var mobile_type = 'baidumap://map/direction?';
+        alert('iphone');
+    }else if(is_android.test(version)){
+        var mobile_type = 'intent://map/direction?';
+        alert('android');
+    }else{
+        var mobile_type = 'http://api.map.baidu.com/direction?';
+        alert('other');
+    }
+    $(".map").find('a').attr("href", mobile_type+'origin={$site.latitude},{$site.longitude}&destination='+latitude+','+longitude+'&mode=driving&src=thinklancer')
+}
+</script>
+
+
