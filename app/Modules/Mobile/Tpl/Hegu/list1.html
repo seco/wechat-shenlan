@@ -1,0 +1,23 @@
+<include file="Hegu:header" />
+<div class="container page-bg">
+    <include file="Hegu:navigation" />
+    <volist name="list" id="vo">
+    <div class="row content-box">
+        <div class="col-xs-12 product-box">
+            <div class="product-title">{$vo.title}</div>
+            <a href="###"><img src="{$vo.cover_name}" class="img-responsive"></a>
+            <div class="product-text">
+                <p>直径：<span>{$vo.description}</span></p>
+                {$vo.content}
+            </div>
+        </div>
+    </div>
+    </volist>
+    <script>
+    function imgpress() {
+        borderColor=document.getElementById('imgpress');
+        borderColor.style.background="{$Think.template|dirname}/images/dhg1.jpg";
+    }
+    </script>
+</div>
+<include file="Hegu:footer" />

@@ -461,7 +461,5 @@ function cbug($content){
 	$insert['ctime'] = time();
 	D('DebugLog')->add($insert);
 }
-
-
-     
+    
 ?>

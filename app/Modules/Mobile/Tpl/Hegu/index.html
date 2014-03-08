@@ -1,0 +1,26 @@
+<include file="Hegu:header" />
+<div class="container pr pb100 main">
+    <div class="row">
+        <img src="{$Think.template|dirname}
+/images/home_bg.jpg" class="img-responsive">
+    </div>
+    <div class="home-bg row w">
+        <div class="menu">
+            <volist name="menuList" id="vo" offset="0" length="3">
+            <div class="col-xs-4"><a href="{$vo.url}">{$vo.title}</a><p></p></div>
+            </volist>
+        </div>
+        <div class="menu">
+            <volist name="menuList" id="vo" offset="3" length="3">
+            <div class="col-xs-4"><a href="{$vo.url}">{$vo.title}</a><p></p></div>
+            </volist>
+        </div>
+    </div>
+</div>
+<script>
+$(function(){
+    var menuwidth=$('.menu a').width();
+    $('.menu a').height(menuwidth).css('line-height',menuwidth+'px');
+})
+</script>
+<include file="footer" />

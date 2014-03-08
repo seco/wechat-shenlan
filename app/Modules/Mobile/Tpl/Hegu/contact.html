@@ -1,0 +1,27 @@
+<include file="Hegu:header" />
+<div class="container page-bg">
+    <include file="Hegu:navigation" />
+    <div class="row content-box">
+        <div class="col-xs-12 contact">
+            <div class="contact-title">地图导航</div>
+            <div class="contact-text"><img src="http://api.map.baidu.com/staticimage?center={$site.longitude},{$site.latitude}&width=600&height=240&zoom=11" class="img-responsive" /></div>
+        </div>
+    </div>
+    <div class="row content-box">
+        <div class="col-xs-12 contact">
+            <div class="contact-title">一键拨号</div>
+            <div class="contact-text"><a href="tel:{$site.tel}">咨询电话：<span>{$site.tel}</span></a></div>
+        </div>
+    </div>
+    <div class="row content-box">
+        <div class="col-xs-12 contact">
+            <div class="contact-title">联系方式</div>
+            <div class="contact-text">
+                <p>公司地址：{$site.address}</p>
+                Email：<span>{$site.email}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Hegu:footer" />
+

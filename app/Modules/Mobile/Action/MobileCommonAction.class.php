@@ -93,6 +93,24 @@ class MobileCommonAction extends CommonAction
         return $catList;
     }
 
+    /**
+     * 获取主图名称
+     * return string $themeName 主题名称
+     */
+    protected function getThemeName()
+    {
+        $siteInfo = $this->getSiteInfo();
+        $themeName = D('CmsTheme')->where('id='.$siteInfo['theme_id'])->getField('spell');
+        return $themeName;
+    }
 
-
+    /**
+     * 设置浏览量
+     * param int $id 栏目ID
+     */
+    protected function setViews($id)
+    {
+        $news_id = D('CmsCat')->where('id='.$id)->getField('news_id');
+        D('PushNews')->where('id='.$news_id)->setInc('views');
+    }
 } 

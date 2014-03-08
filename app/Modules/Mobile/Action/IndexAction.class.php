@@ -11,7 +11,8 @@ class IndexAction extends MobileCommonAction
      */
     public function index()
     {
-        $this->display('Default:index');
+        $theme_name = $this->getThemeName();
+        $this->display(ucfirst($theme_name).':index');
     }
 
     /**
@@ -26,6 +27,8 @@ class IndexAction extends MobileCommonAction
             'info' => $info,
             'list' => $this->getItemList($id),
         );
+        //浏览记录
+        $this->setViews($id);
         $this->assign($data);
         $this->display($info['template_self']);
     }
