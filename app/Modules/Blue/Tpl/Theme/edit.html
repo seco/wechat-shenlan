@@ -1,0 +1,33 @@
+<include file="../Public/header" />
+<!--选项卡 BEGIN-->
+<div class="tabs">
+    <ul>
+        <li class="current"><a href="javascript:void(0)">主题信息</a></li>
+    </ul>
+</div>
+<!--END 选项卡-->
+  
+<!--编辑表单 BEGIN-->
+<div class="edit">
+    <form action="{:U('Blue/Theme/edit')}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{$themeInfo.id}" />
+        <div id="goods_info">
+            <dl><dt>主题名称：</dt>
+                <dd><input type="text" name="theme_name" value="{$themeInfo.theme_name}" class="w200"/></dd></dl>
+            <dl><dt>效果图：</dt>
+                <notempty name="themeInfo[rendering]"><dd><img src="{$themeInfo.rendering_name}" height="50px" /></dd></notempty>
+                <dd><input type="file" name="img" class="w200" /></dd></dl>
+            <dl><dt>标记：</dt>
+                <dd><input type="text" name="spell" value="{$themeInfo.spell}" class="w200" /></dd></dl>
+            <dl><dt>描述：</dt>
+                <dd><input type="text" name="description" value="{$themeInfo.description}" class="w200" /></dd></dl>
+            <dl><dt>作者：</dt>
+                <dd><input type="text" name="author" value="{$themeInfo.author}" class="w200" /></dd></dl>
+            <dl><dt>版本：</dt>
+                <dd><input type="text" name="version" value="{$themeInfo.version}" class="w200" /></dd></dl>
+            <dl><dt>&nbsp;</dt>
+                <dd><input type="submit"  value="提 交" class="btn submit-btn" /></dd></dl>
+        </div>
+    </form>
+</div>
+<include file="../Public/footer" />

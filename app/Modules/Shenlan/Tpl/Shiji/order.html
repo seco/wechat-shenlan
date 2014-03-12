@@ -3,7 +3,7 @@
 <!-- 内容 BEGIN -->
 <div class="container">
   <div class="form pb100 pt30 pb50 mb50 pr">
-    <div id="message" class="alert alert-info w tc none pa" style=" bottom:200px; z-index:999; width:100%; background:#4EAFE9; color:#fff;">提交成功</div>
+    <div id="message" class="alert alert-info w tc none pa" style=" bottom:200px; z-index:999; width:100%; background:#4EAFE9; color:#fff;">您已成功提交留言信息，婚恋顾问会与您及时联系，提供更优质的婚恋交友咨询服务，谢谢您的信任和支持！</div>
 
     <div class="col-xs-12">
     <h4>我要征婚</h4>
@@ -45,6 +45,7 @@
 <!-- END 内容 -->
 <script type="text/javascript" >
 $(function(){
+    clicktime = 1;
     $("input").focus(function(){
     $("input").css("border-color","#CCCCCC");
 });
@@ -67,11 +68,15 @@ function show(){
     }else if($(".require_content").val() == ''){
         $(".require_content").css("border-color", '#A94442');
     }else{
+        if(clicktime == 1){
         $.post("{:U('Shenlan/Leave/doAddLeave', array('blue_key'=>$_SESSION['blue_key']))}", $("#leave").serialize(), function(result){
         $("#message").fadeIn("slow");
-        setTimeout("$('#message').fadeOut('slow')", 1500);
-        setTimeout("window.history.back()", 2000);
+        setTimeout("$('#message').fadeOut('slow')", 8000);
+        setTimeout("window.history.back()", 8500);
         })
+        }else{
+            alert('请勿重复提交');
+        }
     }
 	return false;
 }

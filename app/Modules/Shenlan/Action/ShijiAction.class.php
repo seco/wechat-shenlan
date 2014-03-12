@@ -9,7 +9,7 @@ class ShijiAction extends HomeCommonAction{
      * 搜索
      */
     public function search(){
-        $search = $this->_post();
+        $search = $this->_request();
         //获取Field_id
         $sex_id = D('CmsField')->where("value='sex'")->getField('id');
         $age_id = D('CmsField')->where("value='age'")->getField('id');

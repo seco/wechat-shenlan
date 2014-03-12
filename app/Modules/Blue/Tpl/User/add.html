@@ -1,0 +1,25 @@
+<include file="../Public/header" />
+
+  <!--选项卡 BEGIN-->
+  <div class="tabs">
+    <ul>
+      <li class="current"><a href="javascript:void(0)">用户信息</a></li>
+    </ul>
+  </div>
+  <!--END 选项卡-->
+  
+  <!--编辑表单 BEGIN-->
+  <div class="edit">
+    <form action="{:U('Blue/User/add')}" method="post" enctype="multipart/form-data">
+      <div id="goods_info">
+      <dl>
+        <dt>名称：</dt>
+        <dd><input type="text" name="username" class="w200"/></dd>
+      </dl>
+      <dl>
+        <dt>&nbsp;</dt>
+        <dd><input type="submit"  value="提 交" class="btn submit-btn" /></dd>
+      </dl>
+    </form>
+  </div>
+<include file="../Public/footer" />

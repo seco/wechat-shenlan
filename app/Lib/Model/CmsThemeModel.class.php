@@ -10,6 +10,9 @@ class CmsThemeModel extends CommonModel{
 	 */
 	public function format($info, $arrFormatField){
 		//时间
+        if(in_array('ctime_text', $arrFormatField)){
+            $info['ctime_text'] = date('Y-m-d H:i', $info['ctime']);
+        }
 		if(in_array('mtime_text', $arrFormatField)){
 			$info['mtime_text'] = date('Y-m-d H:i', $info['mtime']);
 		}

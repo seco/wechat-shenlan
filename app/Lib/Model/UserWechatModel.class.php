@@ -16,7 +16,9 @@ class UserWechatModel extends CommonModel{
         if(in_array('logo_name', $arrFormatField)){
             $info['logo_name'] = getPicPath($info['logo']);
         }
-        //时间
+        if(in_array('ctime_text', $arrFormatField)){
+            $info['ctime_text'] = date('Y-m-d H:i', $info['ctime']);
+        }
         if(in_array('mtime_text', $arrFormatField)){
             $info['mtime_text'] = date('Y-m-d H:i', $info['mtime']);
         }

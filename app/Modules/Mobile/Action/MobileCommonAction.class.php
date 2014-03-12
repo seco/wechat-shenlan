@@ -101,7 +101,11 @@ class MobileCommonAction extends CommonAction
     {
         $siteInfo = $this->getSiteInfo();
         $themeName = D('CmsTheme')->where('id='.$siteInfo['theme_id'])->getField('spell');
-        return $themeName;
+        if(!empty($themeName)){
+            return $themeName;
+        }else{
+            return 'default';
+        }
     }
 
     /**

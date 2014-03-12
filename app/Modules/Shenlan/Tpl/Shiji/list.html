@@ -5,6 +5,7 @@
  
     <form method="post" action="{:U('Shenlan/Shiji/search', array('blue_key'=>$_SESSION['blue_key']))}" />
     <input type="hidden" name="id" value="{$itemInfo[catInfo][id]}" />
+    <input type="hidden" name="blue_key" value="{$_SESSION['blue_key']}" />
     <div class="marriage-list clearfix pt10 pb10 row"  >
           <div class="col-xs-3">性别:</div>
           <div class="col-xs-9 mb10">
