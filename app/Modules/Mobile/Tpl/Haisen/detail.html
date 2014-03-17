@@ -1,0 +1,9 @@
+<include file="Haisen:header" />
+<div data-role="page" id="main">
+    <include file="Haisen:navigation" />  
+    <div class="container about">
+        <notempty name="info[cover]"><img src="{$info.cover_name}"></notempty>
+        {$info.content}
+    </div>
+</div>
+<include file="Haisen:footer" />

@@ -1,0 +1,18 @@
+<include file="Haisen:header" />
+<div data-role="page" id="main">
+    <include file="Haisen:navigation" />
+    <div class="container online">
+        <form action="{:U('Message/addMessage', array('key'=>$key))}" method="post" data-ajax="false">
+        <div class="user">
+            <input type="text" name="guest_name" placeholder="姓名">
+            <img src="{$Think.template|dirname}/img/user.png">
+        </div>
+        <div class="user mt20 mb20">
+            <input type="text" pattern="[0-9]{11}" name="phone" placeholder="手机号">
+            <img src="{$Think.template|dirname}/img/phone.png">
+        </div>
+        <div class="textarea" name="content" contenteditable="true"></div>
+        <input class="btn" type="submit" value="提交" />
+    </div>
+</div>
+<include file="Haisen:footer" />

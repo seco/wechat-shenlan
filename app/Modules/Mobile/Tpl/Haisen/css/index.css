@@ -1,0 +1,17 @@
+/*幻灯片*/
+header{text-align:center;   position:relative;      overflow:hidden;}
+ul{ margin:0px; padding:0px;}
+#nav{ position:absolute; width:100%; height:20px; line-height:20px;   bottom:0px;}
+#nav{ float:left; margin-right:5%; opacity:1;} 
+#nav ul li{ float:left; background:#fff; border-radius:10px; width:10px; height:10px; margin-left:10px; margin-top:5px; opacity:0.5;}
+#nav ul li.active{ background:#fff;opacity:1;}
+ .centent-nav div{ padding:10px;}	
+.container{ max-width:640px; margin:auto;}
+.nav li .ui-btn .ui-btn-inner,.nav li  .ui-btn-active,.ui-navbar li .ui-btn{ padding:0; margin:0; border:0; } 
+ 
+.banner img{
+	width:100%;
+	
+	
+}
+.banner ul li{ float:left;}
