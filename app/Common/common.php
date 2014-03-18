@@ -448,6 +448,59 @@ function getBaseInfo($params,$funcName){
 
        return $studentList;
 }
+/**
+ * 支持utf8中文字符截取
+ * @author    肖飞
+ * @param    string $text        待处理字符串
+ * @param    int $start            从第几位截断
+ * @param    int $sublen            截断几个字符
+ * @param    string $code        字符串编码
+ * @param    string $ellipsis    附加省略字符
+ * @return    string
+ */
+function csubstr($string, $start = 0,$sublen=12, $ellipsis='',$code = 'UTF-8') {
+    if($code == 'UTF-8') {
+        $tmpstr = '';
+        $i = $start;
+        $n = 0;
+        $str_length = strlen($string);//字符串的字节数
+        while (($n+0.5<$sublen) and ($i<$str_length)) {
+            $temp_str=substr($string,$i,1);
+            $ascnum=Ord($temp_str);    //得到字符串中第$i位字符的ascii码
+            if ($ascnum>=224) {        //如果ASCII位高与224，
+                $tmpstr .= substr($string,$i,3); //根据UTF-8编码规范，将3个连续的字符计为单个字符
+                $i=$i+3;            //实际Byte计为3
+                $n++;                //字串长度计1
+            }elseif ($ascnum>=192) { //如果ASCII位高与192，
+                $tmpstr .= substr($string,$i,3); //根据UTF-8编码规范，将2个连续的字符计为单个字符
+                $i=$i+3;            //实际Byte计为2
+                $n++;                //字串长度计1
+            }else {                    //其他情况下，包括小写字母和半角标点符号，
+                $tmpstr .= substr($string,$i,1);
+                $i=$i+1;            //实际的Byte数计1个
+                $n=$n+0.5;            //小写字母和半角标点等与半个高位字符宽...
+            }
+        }
+        if(strlen($tmpstr)<$str_length ) {
+            $tmpstr .= $ellipsis;//超过长度时在尾处加上省略号
+        }
+        return $tmpstr;
+    }else {
+        $strlen = strlen($string);
+        if($sublen != 0) $sublen = $sublen*2;
+        else $sublen = $strlen;
+        $tmpstr = '';
+        for($i=0; $i<$strlen; $i++) {
+            if($i>=$start && $i<($start+$sublen)) {
+                if(ord(substr($string, $i, 1))>129) $tmpstr.= substr($string, $i, 2);
+                else $tmpstr.= substr($string, $i, 1);
+            }
+            if(ord(substr($string, $i, 1))>129) $i++;
+        }
+        if(strlen($tmpstr)<$strlen ) $tmpstr.= $ellipsis;
+        return $tmpstr;
+    }
+}
 
 /**
  * 输出用于测试的数据

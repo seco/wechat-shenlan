@@ -2,7 +2,7 @@
 <div data-role="page" id="main">
     <include file="Haisen:navigation" />
     <div class="container online">
-        <form action="{:U('Message/addMessage', array('key'=>$key))}" method="post" data-ajax="false">
+        <form onsubmit="return addMessage()" data-ajax="false">
         <div class="user">
             <input type="text" name="guest_name" placeholder="姓名">
             <img src="{$Think.template|dirname}/img/user.png">
@@ -15,4 +15,16 @@
         <input class="btn" type="submit" value="提交" />
     </div>
 </div>
+<script>
+    function addMessage(){
+        key = '{$key}';
+        $.post("{:U('Message/addMessage', array('key'=>"+key+"))}", $("#message").serialize(), function(data){
+                alert('提交成功');
+                var key = '{$key}';
+                var url = "{:U('Index/index', array('key'=>"+key+"))}";
+                setTimeout("window.location.href='"+url+"'", 1500);
+                }, 'json');
+        return false;
+    }
+</script>
 <include file="Haisen:footer" />
