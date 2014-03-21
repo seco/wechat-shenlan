@@ -510,8 +510,9 @@ function cbug($content){
 		$content = serialize($content);
 	}
 	$insert = array();
-	$insert['content'] = $content;
-	$insert['ctime'] = time();
+    $insert['user_id'] = $_SESSION['uid'];
+	$insert['info'] = $content;
+	$insert['date_add'] = time();
 	D('DebugLog')->add($insert);
 }
     

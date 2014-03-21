@@ -4,3 +4,5 @@ app/Runtime/Cache
 app/Runtime/Data
 app/Runtime/Logs
 app/Runtime/Temp
+app/Modules/Mobile/Tpl
+app/Modules/Shenlan/Tpl
