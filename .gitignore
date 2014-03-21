@@ -1,8 +1,12 @@
-data/*
-data/attach
-app/Runtime/Cache
-app/Runtime/Data
-app/Runtime/Logs
-app/Runtime/Temp
+# ignore the emacs editor cache file
+*~
+
+# ignore the data/ dir
+data/
+
+# ignore the app/Runtime dir
+app/Runtime/
+
+# ignore the app/Modules/Mobile/Tpl
 app/Modules/Mobile/Tpl
 app/Modules/Shenlan/Tpl
