@@ -4,6 +4,9 @@
 # ignore the data/ dir
 data/
 
+# ignore the public dir
+Public/
+
 # ignore the app/Runtime dir
 app/Runtime/
 
