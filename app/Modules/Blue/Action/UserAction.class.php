@@ -44,11 +44,11 @@ class UserAction extends AdminCommonAction
             $this->display();
             exit;
         }
-        $password = mt_rand(2, 20);
+        $password = substr(time(), -5).mt_rand(2, 20);
         $data['password'] = md5($password);
         $data['reg_time'] = time();
         $data['surplus'] = '1';
-        $data['avatar'] = '201312/27/52bce8c1b02c3.jpg';
+        $data['avatar'] = '';
         D('User')->add($data);
         echo '用户名：'.$data['username'];
         echo '<br/>';
